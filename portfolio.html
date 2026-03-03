@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Portfolio | Malka Studios</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/app.js"></script>
+  </head>
+
+  <body class="page page-portfolio">
+    <div class="page-fade"></div>
+    <div class="scroll-progress"><div class="scroll-progress__bar"></div></div>
+    <div class="cursor-glow"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand__mark"></span>
+          <span class="brand__text"
+            >Malka <span class="brand__accent">Studios</span></span
+          >
+        </a>
+        <nav class="nav">
+          <button class="nav__toggle">
+            <span class="nav__toggle-lines"></span>
+          </button>
+          <div class="nav__menu">
+            <a class="nav__link underline" href="index.html">Home</a>
+            <a class="nav__link underline" href="about.html">About</a>
+            <a class="nav__link underline" href="services.html">Services</a>
+            <a class="nav__link underline" href="portfolio.html">Portfolio</a>
+            <a class="nav__link underline" href="blog.html">Insights</a>
+            <a class="nav__link nav__cta" href="contact.html">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section--tight">
+        <div class="container reveal">
+          <p class="eyebrow"><span class="pulse-dot"></span> Selected Work</p>
+          <h1 class="h2" style="font-size: clamp(36px, 5vw, 58px)">
+            Strategic execution. Visible results.
+          </h1>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container">
+          <!-- FILTERS -->
+          <div class="portfolio-filters reveal">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="infra">
+              IT Infrastructure
+            </button>
+            <button class="filter" data-filter="brand">Branding</button>
+            <button class="filter" data-filter="marketing">Marketing</button>
+          </div>
+
+          <!-- GRID -->
+          <div class="portfolio-grid">
+            <div class="portfolio-item reveal" data-category="web">
+              <div class="portfolio-card">
+                <div class="portfolio-overlay">
+                  <h3>High-End Marketing Site</h3>
+                  <p>
+                    Dark premium experience with motion and speed optimization.
+                  </p>
+                  <button class="view-project">View Case Study</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item reveal" data-category="infra">
+              <div class="portfolio-card infra">
+                <div class="portfolio-overlay">
+                  <h3>Hybrid Cloud Deployment</h3>
+                  <p>Secure scalable infrastructure with disaster recovery.</p>
+                  <button class="view-project">View Case Study</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item reveal" data-category="brand">
+              <div class="portfolio-card brand">
+                <div class="portfolio-overlay">
+                  <h3>Brand Identity System</h3>
+                  <p>Strategic positioning and visual identity framework.</p>
+                  <button class="view-project">View Case Study</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item reveal" data-category="marketing">
+              <div class="portfolio-card marketing">
+                <div class="portfolio-overlay">
+                  <h3>Digital Campaign Launch</h3>
+                  <p>Full funnel strategy with measurable ROI growth.</p>
+                  <button class="view-project">View Case Study</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MODAL -->
+    <div class="portfolio-modal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <button class="modal-close">×</button>
+        <h2>Case Study</h2>
+        <p>
+          This project focused on aligning technical execution with brand
+          perception. We redesigned the architecture, implemented performance
+          optimization, and improved conversion pathways.
+        </p>
+
+        <div class="case-metrics">
+          <div><strong>+35%</strong><span>Conversion Increase</span></div>
+          <div><strong>98%</strong><span>Performance Score</span></div>
+          <div><strong>3x</strong><span>Faster Load Time</span></div>
+        </div>
+
+        <a class="btn btn--primary" href="contact.html"
+          >Start Similar Project</a
+        >
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer__bottom">
+        <span>© <span id="year"></span> Malka Studios</span>
+        <a class="underline" href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script>
+      // FILTERING
+      const filters = document.querySelectorAll(".filter");
+      const items = document.querySelectorAll(".portfolio-item");
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filters.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+
+          items.forEach((item) => {
+            item.style.display =
+              filter === "all" || item.dataset.category === filter
+                ? "block"
+                : "none";
+          });
+        });
+      });
+
+      // MODAL
+      const modal = document.querySelector(".portfolio-modal");
+      const openBtns = document.querySelectorAll(".view-project");
+      const closeBtn = document.querySelector(".modal-close");
+      const backdrop = document.querySelector(".modal-backdrop");
+
+      openBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          modal.classList.add("active");
+        });
+      });
+      closeBtn.addEventListener("click", () =>
+        modal.classList.remove("active"),
+      );
+      backdrop.addEventListener("click", () =>
+        modal.classList.remove("active"),
+      );
+    </script>
+  </body>
+</html>
