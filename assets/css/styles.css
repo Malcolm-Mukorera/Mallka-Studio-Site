@@ -2230,3 +2230,41 @@ img {
 .contact-social a:hover {
   color: var(--red);
 }
+/* 404 */
+.error-404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.error-card {
+  text-align: center;
+  border-radius: 28px;
+  border: 1px solid rgba(225, 6, 0, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 0, 0, 0.55)
+  );
+  padding: 50px 40px;
+  max-width: 600px;
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: 950;
+  letter-spacing: -4px;
+  color: var(--red);
+  text-shadow: 0 0 50px rgba(225, 6, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.error-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
