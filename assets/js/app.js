@@ -338,7 +338,57 @@
       filterCommands(e.target.value || "");
     });
   }
+  // Theme toggle (dark/light) with persistence + system default
+  (function themeInit() {
+    const root = document.documentElement;
+    const stored = localStorage.getItem("malka-theme");
 
+    // If user never chose, follow system preference
+    if (!stored) {
+      const prefersLight =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: light)").matches;
+      root.setAttribute("data-theme", prefersLight ? "light" : "dark");
+    } else {
+      root.setAttribute("data-theme", stored);
+    }
+
+    // Update toggle label/icon state
+    function syncToggleUI() {
+      const btn = document.querySelector(".theme-toggle");
+      if (!btn) return;
+
+      const isLight = root.getAttribute("data-theme") === "light";
+      btn.setAttribute("aria-pressed", isLight ? "true" : "false");
+      btn.querySelector(".theme-toggle__text").textContent = isLight
+        ? "Light"
+        : "Dark";
+      btn.title = isLight ? "Switch to dark" : "Switch to light";
+    }
+
+    // Attach click handler
+    function bind() {
+      const btn = document.querySelector(".theme-toggle");
+      if (!btn) return;
+
+      btn.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme") || "dark";
+        const next = current === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        localStorage.setItem("malka-theme", next);
+        syncToggleUI();
+      });
+
+      syncToggleUI();
+    }
+
+    // Wait for DOM so the button exists
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", bind);
+    } else {
+      bind();
+    }
+  })();
   // Helpers
   function escapeHtml(str) {
     return String(str)
