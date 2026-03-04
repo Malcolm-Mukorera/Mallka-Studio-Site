@@ -35,6 +35,17 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Dark mode background effects */
+:root[data-theme="dark"] body {
   background:
     radial-gradient(
       900px 500px at 10% 0%,
@@ -47,11 +58,30 @@ body {
       transparent 65%
     ),
     var(--bg);
-  color: var(--white);
-  line-height: 1.5;
-  overflow-x: hidden;
+}
+:root[data-theme="light"] .section--alt {
+  background: #f6f6f6;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+:root[data-theme="light"] .timeline {
+  border-left-color: rgba(225, 6, 0, 0.4);
 }
 
+:root[data-theme="light"] .timeline-dot {
+  box-shadow: 0 0 12px rgba(225, 6, 0, 0.4);
+}
+:root[data-theme="light"] .founder-card {
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+:root[data-theme="light"] .founder-role {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="light"] .founder-links a {
+  color: rgba(0, 0, 0, 0.8);
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -131,20 +161,27 @@ img {
   border-radius: 4px;
   background: rgba(225, 6, 0, 0.3);
 }
-
-/* Screen reader helper (if you don't already have it) */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.brand__logo {
+  animation: logoFade 0.4s ease;
 }
 
+@keyframes logoFade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.brand__logo {
+  transition: transform 0.25s ease;
+}
+
+.brand:hover .brand__logo {
+  transform: scale(1.04);
+}
 /* Light theme: overrides via data attribute */
 :root[data-theme="light"] {
   /* core */
@@ -354,16 +391,12 @@ textarea,
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 180px;
 }
-.brand__mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  background: var(--red);
-  box-shadow: 0 0 18px rgba(225, 6, 0, 0.55);
-  position: relative;
+
+.brand__logo {
+  height: 62px;
+  width: auto;
+  display: block;
 }
 .brand__mark::after {
   content: "";

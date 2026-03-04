@@ -339,55 +339,65 @@
     });
   }
   // Theme toggle (dark/light) with persistence + system default
-  (function themeInit() {
+  (function themeController() {
     const root = document.documentElement;
-    const stored = localStorage.getItem("malka-theme");
+    const toggle = document.querySelector(".theme-toggle");
 
-    // If user never chose, follow system preference
-    if (!stored) {
-      const prefersLight =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: light)").matches;
-      root.setAttribute("data-theme", prefersLight ? "light" : "dark");
+    const logo = document.getElementById("siteLogo");
+    const footerLogo = document.getElementById("siteLogoFooter");
+
+    const DARK_LOGO = "assets/images/logo-light.png";
+    const LIGHT_LOGO = "assets/images/logo-dark.png";
+
+    const STORAGE_KEY = "malka-theme";
+
+    function setTheme(theme, save = true) {
+      root.setAttribute("data-theme", theme);
+
+      if (save) localStorage.setItem(STORAGE_KEY, theme);
+
+      const logoSrc = theme === "light" ? LIGHT_LOGO : DARK_LOGO;
+
+      if (logo) logo.src = logoSrc;
+      if (footerLogo) footerLogo.src = logoSrc;
+
+      if (toggle) {
+        toggle.setAttribute("aria-pressed", theme === "light");
+
+        const text = toggle.querySelector(".theme-toggle__text");
+        if (text) text.textContent = theme === "light" ? "Light" : "Dark";
+      }
+    }
+
+    // Load saved theme
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved) {
+      setTheme(saved, false);
     } else {
-      root.setAttribute("data-theme", stored);
+      const prefersLight = window.matchMedia(
+        "(prefers-color-scheme: light)",
+      ).matches;
+      setTheme(prefersLight ? "light" : "dark", false);
     }
 
-    // Update toggle label/icon state
-    function syncToggleUI() {
-      const btn = document.querySelector(".theme-toggle");
-      if (!btn) return;
-
-      const isLight = root.getAttribute("data-theme") === "light";
-      btn.setAttribute("aria-pressed", isLight ? "true" : "false");
-      btn.querySelector(".theme-toggle__text").textContent = isLight
-        ? "Light"
-        : "Dark";
-      btn.title = isLight ? "Switch to dark" : "Switch to light";
-    }
-
-    // Attach click handler
-    function bind() {
-      const btn = document.querySelector(".theme-toggle");
-      if (!btn) return;
-
-      btn.addEventListener("click", () => {
+    // Toggle click
+    if (toggle) {
+      toggle.addEventListener("click", () => {
         const current = root.getAttribute("data-theme") || "dark";
-        const next = current === "light" ? "dark" : "light";
-        root.setAttribute("data-theme", next);
-        localStorage.setItem("malka-theme", next);
-        syncToggleUI();
+        const next = current === "dark" ? "light" : "dark";
+        setTheme(next);
       });
-
-      syncToggleUI();
     }
 
-    // Wait for DOM so the button exists
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", bind);
-    } else {
-      bind();
-    }
+    // Auto-update if OS theme changes (only if user never chose)
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          setTheme(e.matches ? "dark" : "light", false);
+        }
+      });
   })();
   // Helpers
   function escapeHtml(str) {
