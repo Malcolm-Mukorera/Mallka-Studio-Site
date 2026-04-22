@@ -1,189 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <title>Contact | Malka Studios</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script defer src="assets/js/app.js"></script>
-  </head>
+  <title>Contact | Malka Studio</title>
+  <meta
+    name="description"
+    content="Get in touch with Malka Studio for IT consulting, website design, development, and marketing solutions."
+  />
 
-  <body class="page page-contact">
-    <div class="page-fade"></div>
-    <div class="scroll-progress"><div class="scroll-progress__bar"></div></div>
-    <div class="cursor-glow"></div>
+  <link rel="canonical" href="https://YOUR_DOMAIN_HERE/contact.html" />
+  <link rel="icon" href="assets/images/favicon-placeholder.ico" />
 
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="index.html">
-          <span class="brand__mark"></span>
-          <span class="brand__text"
-            >Malka <span class="brand__accent">Studios</span></span
-          >
-        </a>
-        <nav class="nav">
-          <button class="nav__toggle">
-            <span class="nav__toggle-lines"></span>
-          </button>
-          <div class="nav__menu">
-            <a class="nav__link underline" href="index.html">Home</a>
-            <a class="nav__link underline" href="about.html">About</a>
-            <a class="nav__link underline" href="services.html">Services</a>
-            <a class="nav__link underline" href="portfolio.html">Portfolio</a>
-            <a class="nav__link underline" href="blog.html">Insights</a>
-            <a class="nav__link nav__cta" href="contact.html">Contact</a>
-            <button
-              class="theme-toggle"
-              type="button"
-              aria-label="Toggle theme"
-              title="Toggle theme"
-            >
-              <span class="theme-toggle__icon" aria-hidden="true"></span>
-              <span class="theme-toggle__text">Theme</span>
-            </button>
-          </div>
-        </nav>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body data-page="contact">
+
+  <!-- Shared Header -->
+  <div id="header-placeholder"></div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="page-hero section">
+      <div class="container">
+        <p class="section-label">Contact Us</p>
+        <h1>Let’s talk about your next project.</h1>
+        <p class="lead">
+          Whether you need a website, consulting, or a full digital solution,
+          we’re ready to help you move forward.
+        </p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="section section--tight">
-        <div class="container reveal">
-          <p class="eyebrow"><span class="pulse-dot"></span> Contact</p>
-          <h1 class="h2" style="font-size: clamp(36px, 5vw, 58px)">
-            Let’s build something serious.
-          </h1>
-          <p class="subhead" style="margin-top: 16px">
-            Tell us about your project. We’ll respond within 24 hours.
-          </p>
+    <!-- Contact Section -->
+    <section class="section contact-main">
+      <div class="container contact-grid">
+
+        <!-- Form -->
+        <div class="contact-form-wrapper reveal">
+          <h2>Send us a message</h2>
+
+          <!-- 
+            IMPORTANT:
+            Replace action="#" with:
+            - Formspree endpoint
+            - Netlify Forms
+            - EmailJS
+            - Or your backend API
+          -->
+          <form id="contactForm" action="#" method="POST" novalidate>
+
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+              <small class="error-message"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+              <small class="error-message"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company (Optional)</label>
+              <input type="text" id="company" name="company" />
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option value="it-consulting">IT Consulting</option>
+                <option value="web-design">Website Design</option>
+                <option value="web-development">Website Development</option>
+                <option value="marketing">Marketing</option>
+                <option value="social-media">Social Media Marketing</option>
+                <option value="full-solution">Full Digital Solution</option>
+              </select>
+              <small class="error-message"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <small class="error-message"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
         </div>
-      </section>
 
-      <section class="section section--alt">
-        <div class="container contact-grid">
-          <!-- FORM -->
-          <div class="contact-form-wrap reveal">
-            <form id="contactForm" novalidate>
-              <div class="form-group">
-                <input type="text" id="name" required />
-                <label for="name">Full Name</label>
-                <span class="form-error">Name is required</span>
-              </div>
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <h2>Contact details</h2>
 
-              <div class="form-group">
-                <input type="email" id="email" required />
-                <label for="email">Email Address</label>
-                <span class="form-error">Valid email required</span>
-              </div>
-
-              <div class="form-group">
-                <input type="text" id="company" />
-                <label for="company">Company (Optional)</label>
-              </div>
-
-              <div class="form-group">
-                <textarea id="message" rows="5" required></textarea>
-                <label for="message">Project Details</label>
-                <span class="form-error">Please describe your project</span>
-              </div>
-
-              <button class="btn btn--primary submit-btn" type="submit">
-                Send Message
-                <span class="btn__shine"></span>
-              </button>
-
-              <div class="form-success">✓ Message sent successfully.</div>
-            </form>
+          <div class="contact-block">
+            <h3>Email</h3>
+            <a href="mailto:YOUR_EMAIL_ADDRESS">YOUR_EMAIL_ADDRESS</a>
           </div>
 
-          <!-- CONTACT INFO -->
-          <div class="contact-info reveal">
-            <div class="contact-card">
-              <h3>Email</h3>
-              <a href="mailto:info@malkastudios.com">info@malkastudios.com</a>
-            </div>
+          <div class="contact-block">
+            <h3>Phone</h3>
+            <a href="tel:YOUR_PHONE_NUMBER">YOUR_PHONE_NUMBER</a>
+          </div>
 
-            <div class="contact-card">
-              <h3>Phone</h3>
-              <p>+27 XX XXX XXXX</p>
-            </div>
-
-            <div class="contact-card">
-              <h3>Location</h3>
-              <p>South Africa</p>
-            </div>
-
-            <div class="contact-card">
-              <h3>WhatsApp</h3>
-              <a
-                class="btn btn--ghost"
-                href="https://wa.me/27000000000"
-                target="_blank"
-              >
-                Chat on WhatsApp →
+          <div class="contact-block">
+            <h3>WhatsApp</h3>
+            <div class="contact-whatsapp">
+              <a href="https://wa.me/SMANGA_WHATSAPP_NUMBER" target="_blank">
+                Chat with Smanga
+              </a>
+              <a href="https://wa.me/MALCOLM_WHATSAPP_NUMBER" target="_blank">
+                Chat with Malcolm
               </a>
             </div>
+          </div>
 
-            <div class="contact-card">
-              <h3>Social</h3>
-              <div class="contact-social">
-                <a href="#">LinkedIn</a>
-                <a href="#">Instagram</a>
-                <a href="#">X</a>
-              </div>
+          <div class="contact-block">
+            <h3>Follow us</h3>
+            <div class="social-links">
+              <a href="YOUR_INSTAGRAM_LINK" target="_blank">Instagram</a>
+              <a href="YOUR_TIKTOK_LINK" target="_blank">TikTok</a>
+              <a href="YOUR_FACEBOOK_LINK" target="_blank">Facebook</a>
             </div>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <div class="container footer__bottom">
-        <span>© <span id="year"></span> Malka Studios</span>
-        <a class="underline" href="#top">Back to top</a>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      const form = document.getElementById("contactForm");
-      const inputs = form.querySelectorAll(
-        "input[required], textarea[required]",
-      );
-      const success = document.querySelector(".form-success");
+    <!-- Map Placeholder -->
+    <section class="section map-section">
+      <div class="container reveal">
+        <h2>Our location</h2>
 
-      function validateField(field) {
-        const group = field.parentElement;
-        if (
-          !field.value.trim() ||
-          (field.type === "email" && !field.value.includes("@"))
-        ) {
-          group.classList.add("error");
-          return false;
-        }
-        group.classList.remove("error");
-        return true;
-      }
+        <!-- Replace iframe src with your real Google Maps embed -->
+        <div class="map-placeholder">
+          <iframe
+            src="YOUR_GOOGLE_MAPS_LINK"
+            width="100%"
+            height="400"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
 
-      inputs.forEach((input) => {
-        input.addEventListener("input", () => validateField(input));
-      });
+    <!-- FAQ -->
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-label">Quick answers</p>
+          <h2>Frequently asked questions</h2>
+        </div>
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
+        <div class="faq-list">
 
-        let valid = true;
-        inputs.forEach((input) => {
-          if (!validateField(input)) valid = false;
-        });
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              How long does a website take to build?
+            </button>
+            <div class="faq-answer">
+              <p>
+                It depends on the complexity, but most standard websites take
+                between a few days to a few weeks.
+              </p>
+            </div>
+          </div>
 
-        if (valid) {
-          success.classList.add("active");
-          form.reset();
-          setTimeout(() => success.classList.remove("active"), 4000);
-        }
-      });
-    </script>
-  </body>
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Do you offer ongoing support?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes, we can support updates, improvements, and ongoing changes
+                depending on your needs.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              Can you help with social media as well?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes, we help with content planning, structure, and improving
+                your online visibility across platforms.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-banner">
+      <div class="container cta-banner-inner reveal">
+        <div>
+          <p class="section-label light">Let’s get started</p>
+          <h2>Reach out and we’ll help you move forward.</h2>
+        </div>
+
+        <div class="cta-actions">
+          <a href="services.html" class="btn btn-light">View Services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- WhatsApp Widget -->
+  <div class="whatsapp-widget">
+    <button id="whatsappToggle" class="whatsapp-toggle">WhatsApp</button>
+
+    <div id="whatsappMenu" class="whatsapp-menu">
+      <a href="https://wa.me/SMANGA_WHATSAPP_NUMBER" target="_blank">
+        Chat with Smanga
+      </a>
+      <a href="https://wa.me/MALCOLM_WHATSAPP_NUMBER" target="_blank">
+        Chat with Malcolm
+      </a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
 </html>

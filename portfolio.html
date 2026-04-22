@@ -1,193 +1,287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <title>Portfolio | Malka Studios</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script defer src="assets/js/app.js"></script>
-  </head>
+  <title>Portfolio | Malka Studio</title>
+  <meta
+    name="description"
+    content="View Malka Studio portfolio projects across website design, development, IT consulting, and digital marketing solutions."
+  />
+  <meta
+    name="keywords"
+    content="Malka  Studio portfolio, web design portfolio, website development, IT consulting, marketing projects"
+  />
+  <meta name="author" content="Malka Studio" />
 
-  <body class="page page-portfolio">
-    <div class="page-fade"></div>
-    <div class="scroll-progress"><div class="scroll-progress__bar"></div></div>
-    <div class="cursor-glow"></div>
+  <meta property="og:title" content="Portfolio | Malka Studio" />
+  <meta
+    property="og:description"
+    content="Explore project showcases and digital solutions by Malka Studio."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_DOMAIN_HERE/portfolio.html" />
+  <meta property="og:image" content="assets/images/placeholder-project-1.jpg" />
 
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="index.html">
-          <span class="brand__mark"></span>
-          <span class="brand__text"
-            >Malka <span class="brand__accent">Studios</span></span
-          >
-        </a>
-        <nav class="nav">
-          <button class="nav__toggle">
-            <span class="nav__toggle-lines"></span>
-          </button>
-          <div class="nav__menu">
-            <a class="nav__link underline" href="index.html">Home</a>
-            <a class="nav__link underline" href="about.html">About</a>
-            <a class="nav__link underline" href="services.html">Services</a>
-            <a class="nav__link underline" href="portfolio.html">Portfolio</a>
-            <a class="nav__link underline" href="blog.html">Insights</a>
-            <a class="nav__link nav__cta" href="contact.html">Contact</a>
-            <button
-              class="theme-toggle"
-              type="button"
-              aria-label="Toggle theme"
-              title="Toggle theme"
-            >
-              <span class="theme-toggle__icon" aria-hidden="true"></span>
-              <span class="theme-toggle__text">Theme</span>
-            </button>
-          </div>
-        </nav>
-      </div>
-    </header>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfolio | Malka Studio" />
+  <meta
+    name="twitter:description"
+    content="Explore project showcases and digital solutions by Malka Studio."
+  />
 
-    <main>
-      <section class="section section--tight">
-        <div class="container reveal">
-          <p class="eyebrow"><span class="pulse-dot"></span> Selected Work</p>
-          <h1 class="h2" style="font-size: clamp(36px, 5vw, 58px)">
-            Strategic execution. Visible results.
-          </h1>
-        </div>
-      </section>
+  <link rel="canonical" href="https://YOUR_DOMAIN_HERE/portfolio.html" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon-placeholder.ico" />
 
-      <section class="section section--alt">
-        <div class="container">
-          <!-- FILTERS -->
-          <div class="portfolio-filters reveal">
-            <button class="filter active" data-filter="all">All</button>
-            <button class="filter" data-filter="web">Web</button>
-            <button class="filter" data-filter="infra">
-              IT Infrastructure
-            </button>
-            <button class="filter" data-filter="brand">Branding</button>
-            <button class="filter" data-filter="marketing">Marketing</button>
-          </div>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+</head>
+<body data-page="portfolio">
+  <div id="header-placeholder"></div>
 
-          <!-- GRID -->
-          <div class="portfolio-grid">
-            <div class="portfolio-item reveal" data-category="web">
-              <div class="portfolio-card">
-                <div class="portfolio-overlay">
-                  <h3>High-End Marketing Site</h3>
-                  <p>
-                    Dark premium experience with motion and speed optimization.
-                  </p>
-                  <button class="view-project">View Case Study</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item reveal" data-category="infra">
-              <div class="portfolio-card infra">
-                <div class="portfolio-overlay">
-                  <h3>Hybrid Cloud Deployment</h3>
-                  <p>Secure scalable infrastructure with disaster recovery.</p>
-                  <button class="view-project">View Case Study</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item reveal" data-category="brand">
-              <div class="portfolio-card brand">
-                <div class="portfolio-overlay">
-                  <h3>Brand Identity System</h3>
-                  <p>Strategic positioning and visual identity framework.</p>
-                  <button class="view-project">View Case Study</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="portfolio-item reveal" data-category="marketing">
-              <div class="portfolio-card marketing">
-                <div class="portfolio-overlay">
-                  <h3>Digital Campaign Launch</h3>
-                  <p>Full funnel strategy with measurable ROI growth.</p>
-                  <button class="view-project">View Case Study</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- MODAL -->
-    <div class="portfolio-modal">
-      <div class="modal-backdrop"></div>
-      <div class="modal-content">
-        <button class="modal-close">×</button>
-        <h2>Case Study</h2>
-        <p>
-          This project focused on aligning technical execution with brand
-          perception. We redesigned the architecture, implemented performance
-          optimization, and improved conversion pathways.
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero section">
+      <div class="container">
+        <p class="section-label">Our Portfolio</p>
+        <h1>Work designed to communicate clearly and look professionally built.</h1>
+        <p class="lead">
+          This page is structured to help you showcase your projects visually.
+          You can replace the placeholders with real work as your portfolio grows.
         </p>
+      </div>
+    </section>
 
-        <div class="case-metrics">
-          <div><strong>+35%</strong><span>Conversion Increase</span></div>
-          <div><strong>98%</strong><span>Performance Score</span></div>
-          <div><strong>3x</strong><span>Faster Load Time</span></div>
+    <!-- Portfolio Intro -->
+    <section class="section portfolio-intro">
+      <div class="container portfolio-intro-grid reveal">
+        <div>
+          <p class="section-label">What this page shows</p>
+          <h2>A clean, visual way to present projects, campaigns, and digital solutions.</h2>
+        </div>
+        <div>
+          <p>
+            Your portfolio should quickly show potential clients that you know how to
+            structure work, present ideas, and deliver modern digital solutions.
+            This layout is built to do that without overwhelming the user.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="section portfolio-filter-section">
+      <div class="container">
+        <div class="filter-toolbar reveal">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web-design">Web Design</button>
+          <button class="filter-btn" data-filter="development">Development</button>
+          <button class="filter-btn" data-filter="marketing">Marketing</button>
+          <button class="filter-btn" data-filter="consulting">Consulting</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section portfolio-main">
+      <div class="container">
+        <div class="portfolio-grid">
+
+          <article class="portfolio-card reveal" data-category="web-design">
+            <div class="portfolio-image-wrap">
+              <img
+                src="assets/images/placeholder-project-1.jpg"
+                alt="Corporate website redesign project"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Web Design</span>
+              <h3>Corporate Website Redesign</h3>
+              <p>
+                A polished layout concept focused on improving first impressions,
+                trust, and user flow for a professional services brand.
+              </p>
+              <a href="contact.html" class="portfolio-link">Request something similar</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-category="development">
+            <div class="portfolio-image-wrap">
+              <img
+                src="assets/images/placeholder-project-2.jpg"
+                alt="Custom website development project"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Development</span>
+              <h3>Custom Business Website Build</h3>
+              <p>
+                A responsive, structured website concept built with strong layout
+                organization and room for future expansion.
+              </p>
+              <a href="contact.html" class="portfolio-link">Build my website</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-category="marketing">
+            <div class="portfolio-image-wrap">
+              <img
+                src="assets/images/placeholder-project-3.jpg"
+                alt="Digital marketing content project"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Marketing</span>
+              <h3>Content Visibility Campaign</h3>
+              <p>
+                A campaign layout designed to help brands present social and digital
+                content in a way that feels modern and intentional.
+              </p>
+              <a href="contact.html" class="portfolio-link">Plan a campaign</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-category="consulting">
+            <div class="portfolio-image-wrap">
+              <img
+                src="assets/images/placeholder-project-4.jpg"
+                alt="IT consulting and solutions planning project"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Consulting</span>
+              <h3>Solutions Planning Framework</h3>
+              <p>
+                A digital consulting concept focused on helping a business structure
+                its systems and online presence more effectively.
+              </p>
+              <a href="contact.html" class="portfolio-link">Talk to us</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-category="web-design">
+            <div class="portfolio-image-wrap">
+              <img
+                src="assets/images/placeholder-project-5.jpg"
+                alt="Creative brand website design project"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Web Design</span>
+              <h3>Creative Brand Showcase</h3>
+              <p>
+                A highly visual layout aimed at brands that want stronger image-led
+                storytelling and better presentation online.
+              </p>
+              <a href="contact.html" class="portfolio-link">Create my brand site</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-category="development">
+            <div class="portfolio-image-wrap">
+              <img
+                src="assets/images/placeholder-project-6.jpg"
+                alt="Landing page and business development project"
+                loading="lazy"
+              />
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Development</span>
+              <h3>Service Landing Page Build</h3>
+              <p>
+                A conversion-focused landing page designed to guide visitors to a
+                clear call to action quickly and professionally.
+              </p>
+              <a href="contact.html" class="portfolio-link">Launch a landing page</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase Banner -->
+    <section class="section showcase-banner">
+      <div class="container showcase-banner-inner reveal">
+        <div>
+          <p class="section-label light">Your work deserves strong presentation</p>
+          <h2>We can help you create a digital presence that looks ready for business.</h2>
+        </div>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-light">Start a Project</a>
+          <a href="services.html" class="btn btn-outline-light">See Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Preview -->
+    <section class="section process-preview">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-label">How we work</p>
+          <h2>A simple process that keeps projects clear and moving.</h2>
         </div>
 
-        <a class="btn btn--primary" href="contact.html"
-          >Start Similar Project</a
-        >
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <span>01</span>
+            <h3>Discover</h3>
+            <p>We understand your business, goals, audience, and what the project needs to achieve.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <span>02</span>
+            <h3>Design</h3>
+            <p>We shape the layout, visuals, and structure so the experience feels clean and engaging.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>We develop the website or solution carefully, keeping it responsive, organized, and scalable.</p>
+          </article>
+
+          <article class="process-card reveal">
+            <span>04</span>
+            <h3>Refine</h3>
+            <p>We improve the final details so the result feels polished, clear, and ready to launch.</p>
+          </article>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Back To Top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- WhatsApp Floating Widget -->
+  <div class="whatsapp-widget">
+    <button
+      id="whatsappToggle"
+      class="whatsapp-toggle"
+      aria-label="Open WhatsApp contact options"
+    >
+      <span>WhatsApp</span>
+    </button>
+
+    <div id="whatsappMenu" class="whatsapp-menu">
+      <a href="https://wa.me/SMANGA_WHATSAPP_NUMBER" target="_blank" rel="noopener noreferrer">
+        Chat with Smanga
+      </a>
+      <a href="https://wa.me/MALCOLM_WHATSAPP_NUMBER" target="_blank" rel="noopener noreferrer">
+        Chat with Malcolm
+      </a>
     </div>
+  </div>
 
-    <footer class="footer">
-      <div class="container footer__bottom">
-        <span>© <span id="year"></span> Malka Studios</span>
-        <a class="underline" href="#top">Back to top</a>
-      </div>
-    </footer>
-
-    <script>
-      // FILTERING
-      const filters = document.querySelectorAll(".filter");
-      const items = document.querySelectorAll(".portfolio-item");
-
-      filters.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filters.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          const filter = btn.dataset.filter;
-
-          items.forEach((item) => {
-            item.style.display =
-              filter === "all" || item.dataset.category === filter
-                ? "block"
-                : "none";
-          });
-        });
-      });
-
-      // MODAL
-      const modal = document.querySelector(".portfolio-modal");
-      const openBtns = document.querySelectorAll(".view-project");
-      const closeBtn = document.querySelector(".modal-close");
-      const backdrop = document.querySelector(".modal-backdrop");
-
-      openBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          modal.classList.add("active");
-        });
-      });
-      closeBtn.addEventListener("click", () =>
-        modal.classList.remove("active"),
-      );
-      backdrop.addEventListener("click", () =>
-        modal.classList.remove("active"),
-      );
-    </script>
-  </body>
+  <script src="js/main.js"></script>
+</body>
 </html>

@@ -1,0 +1,130 @@
+/* =========================================
+   SERVICES PAGE STYLES
+========================================= */
+
+/* Hero */
+.page-hero {
+  background:
+    linear-gradient(135deg, rgba(225, 6, 0, 0.05), rgba(0, 0, 0, 0.02)),
+    #ffffff;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.page-hero h1 {
+  max-width: 800px;
+  margin-bottom: 16px;
+}
+
+.page-hero .lead {
+  max-width: 700px;
+}
+
+/* Main Services Section */
+.services-main {
+  background: #ffffff;
+}
+
+/* Service Block */
+.service-block {
+  margin-bottom: 80px;
+}
+
+/* Grid Layout */
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.service-grid.reverse {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.service-grid.reverse .service-image {
+  order: 2;
+}
+
+.service-grid.reverse .service-content {
+  order: 1;
+}
+
+/* Images */
+.service-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Content */
+.service-content h2 {
+  margin-bottom: 16px;
+}
+
+.service-content p {
+  margin-bottom: 18px;
+  max-width: 650px;
+}
+
+/* Bullet List */
+.service-content ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.service-content ul li {
+  margin-bottom: 8px;
+  color: var(--color-muted);
+}
+
+/* Button */
+.service-content .btn {
+  margin-top: 10px;
+}
+
+/* CTA Banner */
+.cta-banner-inner h2 {
+  color: white;
+  max-width: 700px;
+}
+
+/* Subtle Separation */
+.service-block:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 60px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .service-grid,
+  .service-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid.reverse .service-image,
+  .service-grid.reverse .service-content {
+    order: unset;
+  }
+
+  .service-image img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-hero {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
+  .service-block {
+    margin-bottom: 60px;
+  }
+
+  .service-image img {
+    height: 260px;
+  }
+}

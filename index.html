@@ -1,661 +1,488 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <title>Malka Studios | IT Solutions, Consulting & Media Marketing</title>
-    <meta
-      name="description"
-      content="Malka Studios is a strategic technology partner and creative innovation lab delivering web, cloud, consulting, and media marketing."
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script defer src="assets/js/app.js"></script>
-  </head>
+  <title>Malka Studio | IT Consulting, Web Design & Digital Solutions</title>
+  <meta
+    name="description"
+    content="Malka Studio is a modern solutions company offering IT consulting, website design, website development, marketing, and social media marketing services."
+  />
+  <meta
+    name="keywords"
+    content="Malka   Studio, IT consulting, website design, website development, social media marketing, digital solutions"
+  />
+  <meta name="author" content="Malka Studio" />
 
-  <body class="page page-home">
-    <!-- Page transition layer -->
-    <div class="page-fade" aria-hidden="true"></div>
+  <meta property="og:title" content="Malka Studio | Modern Digital Solutions" />
+  <meta
+    property="og:description"
+    content="Professional IT consulting, website design, website development, and marketing solutions for modern businesses."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_DOMAIN_HERE/" />
+  <meta property="og:image" content="assets/images/logo-placeholder.png" />
 
-    <!-- Scroll progress -->
-    <div class="scroll-progress" aria-hidden="true">
-      <div class="scroll-progress__bar"></div>
-    </div>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Malka  Studio | Modern Digital Solutions" />
+  <meta
+    name="twitter:description"
+    content="Professional IT consulting, website design, website development, and marketing solutions for modern businesses."
+  />
 
-    <!-- Cursor glow -->
-    <div class="cursor-glow" aria-hidden="true"></div>
+  <link rel="canonical" href="https://YOUR_DOMAIN_HERE/" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon-placeholder.ico" />
 
-    <!-- Command Palette (unexpected elite feature) -->
-    <div class="palette" id="palette" aria-hidden="true">
-      <div class="palette__backdrop" data-palette-close></div>
-      <div
-        class="palette__panel"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Command palette"
-      >
-        <div class="palette__top">
-          <div class="palette__hint">
-            <span class="kbd">Ctrl</span> + <span class="kbd">K</span> · Type to
-            jump
-          </div>
-          <button
-            class="icon-btn"
-            type="button"
-            aria-label="Close palette"
-            data-palette-close
-          >
-            <span class="icon-x" aria-hidden="true"></span>
-          </button>
-        </div>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/home.css" />
 
-        <label class="sr-only" for="paletteInput">Search</label>
-        <input
-          id="paletteInput"
-          class="palette__input"
-          type="text"
-          placeholder="Search: services, portfolio, contact…"
-          autocomplete="off"
-        />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Malka Studio",
+      "url": "https://YOUR_DOMAIN_HERE/",
+      "logo": "https://YOUR_DOMAIN_HERE/assets/images/logo-placeholder.png",
+      "description": "IT consulting, website design, website development, marketing and social media marketing solutions company.",
+      "sameAs": [
+        "YOUR_INSTAGRAM_LINK",
+        "YOUR_TIKTOK_LINK",
+        "YOUR_FACEBOOK_LINK",
+        "YOUR_LINKEDIN_LINK"
+      ]
+    }
+  </script>
+</head>
+<body data-page="home">
+  <!-- Page Loader -->
 
-        <div
-          class="palette__list"
-          id="paletteList"
-          role="listbox"
-          aria-label="Suggestions"
-        ></div>
 
-        <div class="palette__footer">
-          <span class="muted">Enter</span> to open ·
-          <span class="muted">Esc</span> to close ·
-          <span class="muted">↑/↓</span> to navigate
-        </div>
-      </div>
-    </div>
+  <!-- Shared Header Loads Here -->
+  <div id="header-placeholder"></div>
 
-    <!-- Header / Nav -->
-    <header class="site-header" id="top">
-      <div class="container nav-wrap">
-        <a class="brand" href="index.html">
-          <img
-            id="siteLogo"
-            src="assets/images/logo-light.png"
-            alt="Malka Studios Logo"
-            class="brand__logo"
-          />
-        </a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Modern digital solutions for modern businesses</p>
+          <h1>We build digital experiences that help businesses grow with confidence.</h1>
+          <p class="lead">
+            Malka Studio delivers IT consulting, website design, website development,
+            and marketing solutions that are clean, modern, and built to convert
+            attention into action.
+          </p>
 
-        <nav class="nav" aria-label="Primary navigation">
-          <button
-            class="nav__toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="navMenu"
-          >
-            <span class="nav__toggle-lines" aria-hidden="true"></span>
-            <span class="sr-only">Open menu</span>
-          </button>
-
-          <div class="nav__menu" id="navMenu">
-            <a class="nav__link underline" href="index.html">Home</a>
-            <a class="nav__link underline" href="about.html">About</a>
-            <a class="nav__link underline" href="services.html">Services</a>
-            <a class="nav__link underline" href="portfolio.html">Portfolio</a>
-            <a class="nav__link underline" href="blog.html">Insights</a>
-            <a class="nav__link nav__cta" href="contact.html">Contact</a>
-            <button
-              class="theme-toggle"
-              type="button"
-              aria-label="Toggle theme"
-              title="Toggle theme"
-            >
-              <span class="theme-toggle__icon" aria-hidden="true"></span>
-              <span class="theme-toggle__text">Theme</span>
-            </button>
-          </div>
-        </nav>
-
-        <div class="nav-actions">
-          <button
-            class="chip"
-            type="button"
-            data-open-palette
-            aria-label="Open command palette"
-          >
-            <span class="chip__dot" aria-hidden="true"></span>
-            Quick Jump <span class="chip__kbd">Ctrl K</span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section class="hero" aria-label="Malka Studios introduction">
-        <div class="hero__bg" aria-hidden="true">
-          <div class="gridlines"></div>
-          <div class="orb orb--a"></div>
-          <div class="orb orb--b"></div>
-          <div class="orb orb--c"></div>
-        </div>
-
-        <div class="container hero__inner">
-          <div class="hero__content reveal">
-            <p class="eyebrow">
-              <span class="pulse-dot" aria-hidden="true"></span>
-              Premium IT + Creative Growth Studio
-            </p>
-
-            <h1 class="hero__title">
-              We build
-              <span class="glitch" data-glitch="systems">systems</span> that
-              feel like
-              <span class="hero__accent">momentum.</span>
-            </h1>
-
-            <p class="hero__lead">
-              Malka Studios is your strategic technology partner and creative
-              innovation lab. We design modern web experiences, deliver
-              dependable infrastructure, and market brands with intent.
-            </p>
-
-            <div class="hero__cta">
-              <a class="btn btn--primary" href="contact.html">
-                Start a Project
-                <span class="btn__shine" aria-hidden="true"></span>
-              </a>
-              <a class="btn btn--ghost" href="#services">
-                Explore Services
-                <span class="btn__arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-
-            <div class="hero__meta">
-              <div class="meta-pill">
-                <span class="meta-pill__label">Response time</span>
-                <span class="meta-pill__value">Within 24 hours</span>
-              </div>
-              <div class="meta-pill">
-                <span class="meta-pill__label">Location</span>
-                <span class="meta-pill__value">South Africa</span>
-              </div>
-              <div class="meta-pill">
-                <span class="meta-pill__label">Email</span>
-                <a
-                  class="meta-pill__value link"
-                  href="mailto:info@malkastudios.com"
-                  >info@malkastudios.com</a
-                >
-              </div>
-            </div>
+          <div class="hero-actions">
+            <a href="services.html" class="btn btn-primary">Explore Services</a>
+            <a href="contact.html" class="btn btn-secondary">Start Your Project</a>
           </div>
 
-          <aside class="hero__panel reveal" aria-label="Highlights">
-            <div class="panel-card panel-card--top">
-              <div class="panel-card__title">Signal over noise</div>
-              <p class="panel-card__text">
-                We don’t chase trends. We engineer outcomes: speed, clarity, and
-                conversion.
-              </p>
-              <div class="panel-card__chips">
-                <span class="tag">Web</span>
-                <span class="tag">Cloud</span>
-                <span class="tag">Brand</span>
-                <span class="tag">Growth</span>
-              </div>
-            </div>
-
-            <div class="panel-card panel-card--mid">
-              <div class="panel-card__row">
-                <div class="metric">
-                  <div class="metric__value" data-counter data-to="98">0</div>
-                  <div class="metric__label">Delivery focus</div>
-                </div>
-                <div class="metric">
-                  <div class="metric__value" data-counter data-to="24">0</div>
-                  <div class="metric__label">Hour response</div>
-                </div>
-              </div>
-
-              <div class="divider"></div>
-
-              <button class="mini-action" type="button" data-open-palette>
-                Jump to anything
-                <span class="mini-action__kbd">Ctrl K</span>
-              </button>
-            </div>
-
-            <div class="panel-card panel-card--bot">
-              <div class="sparkline" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span
-                ><span></span><span></span><span></span>
-              </div>
-              <p class="panel-card__text subtle">
-                Built for fast load, smooth motion, and clean structure. No
-                frameworks. No noise.
-              </p>
-            </div>
-          </aside>
-        </div>
-
-        <!-- Animated SVG divider -->
-        <div class="divider-svg" aria-hidden="true">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-              class="divider-svg__path"
-              d="M0,64 C200,120 400,0 600,64 C800,128 1000,24 1200,80 L1200,120 L0,120 Z"
-            ></path>
-          </svg>
-        </div>
-      </section>
-
-      <!-- ABOUT PREVIEW -->
-      <section class="section section--tight" id="about">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 class="h2">
-              A studio that blends engineering discipline with creative
-              pressure.
-            </h2>
-            <p class="subhead">
-              We help teams ship smarter websites, reliable infrastructure, and
-              brand storytelling that actually sells.
-            </p>
-            <div class="section-head__actions">
-              <a class="btn btn--ghost" href="about.html"
-                >Meet Malka Studios <span aria-hidden="true">→</span></a
-              >
-            </div>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature-card reveal">
-              <h3 class="h3">Strategy first</h3>
-              <p>
-                Every build starts with clarity: audience, offer, funnel, and
-                what “success” looks like.
-              </p>
-            </article>
-            <article class="feature-card reveal">
-              <h3 class="h3">Craft + performance</h3>
-              <p>
-                High-end visuals with real technical depth: speed,
-                accessibility, and scalable structure.
-              </p>
-            </article>
-            <article class="feature-card reveal">
-              <h3 class="h3">Partnership energy</h3>
-              <p>
-                Clear comms, measurable progress, and decisions that respect
-                your budget and timeline.
-              </p>
-            </article>
+          <div class="hero-badges">
+            <span>IT Consulting</span>
+            <span>Web Design</span>
+            <span>Web Development</span>
+            <span>Marketing</span>
+            <span>Social Media</span>
           </div>
         </div>
-      </section>
 
-      <!-- SERVICES PREVIEW -->
-      <section class="section" id="services">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 class="h2">Services designed for momentum.</h2>
-            <p class="subhead">Build. Secure. Scale. Market. Maintain.</p>
-            <div class="section-head__actions">
-              <a class="btn btn--primary" href="services.html">
-                View full services
-                <span class="btn__shine" aria-hidden="true"></span>
-              </a>
-            </div>
-          </div>
-
-          <div class="services-preview">
-            <a
-              class="service-tile reveal"
-              href="services.html#web"
-              aria-label="Web Development"
-            >
-              <div class="service-tile__top">
-                <span class="service-ico" aria-hidden="true">⟡</span>
-                <span class="service-kicker">Web Development</span>
-              </div>
-              <h3 class="service-title">Modern sites that convert.</h3>
-              <p class="service-desc">
-                Fast, responsive, animated experiences with clean UX and a
-                premium feel.
-              </p>
-              <span class="service-link"
-                >Explore <span aria-hidden="true">→</span></span
-              >
-            </a>
-
-            <a
-              class="service-tile reveal"
-              href="services.html#consulting"
-              aria-label="IT Consulting"
-            >
-              <div class="service-tile__top">
-                <span class="service-ico" aria-hidden="true">⌬</span>
-                <span class="service-kicker">IT Consulting</span>
-              </div>
-              <h3 class="service-title">Decisions with receipts.</h3>
-              <p class="service-desc">
-                Audit, architecture, security posture, and roadmaps you can
-                defend.
-              </p>
-              <span class="service-link"
-                >Explore <span aria-hidden="true">→</span></span
-              >
-            </a>
-
-            <a
-              class="service-tile reveal"
-              href="services.html#branding"
-              aria-label="Branding & Media Marketing"
-            >
-              <div class="service-tile__top">
-                <span class="service-ico" aria-hidden="true">⟠</span>
-                <span class="service-kicker">Branding & Marketing</span>
-              </div>
-              <h3 class="service-title">Make your brand unavoidable.</h3>
-              <p class="service-desc">
-                Brand identity, content, campaigns, and creative built to drive
-                action.
-              </p>
-              <span class="service-link"
-                >Explore <span aria-hidden="true">→</span></span
-              >
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- PORTFOLIO PREVIEW -->
-      <section class="section section--alt" id="portfolio">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 class="h2">Selected work (preview).</h2>
-            <p class="subhead">
-              A few examples of how we think, build, and present.
-            </p>
-            <div class="section-head__actions">
-              <a class="btn btn--ghost" href="portfolio.html"
-                >Explore portfolio <span aria-hidden="true">→</span></a
-              >
-            </div>
-          </div>
-
-          <div class="work-grid">
-            <article class="work-card reveal" tabindex="0">
-              <div class="work-card__media">
-                <div class="work-card__mock">
-                  <span class="mock-dot"></span><span class="mock-dot"></span
-                  ><span class="mock-dot"></span>
-                  <div class="mock-line"></div>
-                  <div class="mock-line short"></div>
-                  <div class="mock-block"></div>
-                </div>
-              </div>
-              <div class="work-card__body">
-                <div class="work-meta">
-                  <span class="badge">Web</span>
-                  <span class="badge badge--soft">UI/UX</span>
-                </div>
-                <h3 class="h3">High-end marketing site</h3>
-                <p>
-                  Dark-mode premium build with motion, CTA flow, and speed-first
-                  structure.
-                </p>
-              </div>
-            </article>
-
-            <article class="work-card reveal" tabindex="0">
-              <div class="work-card__media">
-                <div class="work-card__mock mock--infra">
-                  <div class="mock-node"></div>
-                  <div class="mock-node"></div>
-                  <div class="mock-node"></div>
-                  <div class="mock-conn"></div>
-                  <div class="mock-conn c2"></div>
-                </div>
-              </div>
-              <div class="work-card__body">
-                <div class="work-meta">
-                  <span class="badge">IT Infrastructure</span>
-                  <span class="badge badge--soft">Cloud</span>
-                </div>
-                <h3 class="h3">Hybrid-ready architecture</h3>
-                <p>
-                  Practical infrastructure design and rollout planning for
-                  reliability and cost control.
-                </p>
-              </div>
-            </article>
-
-            <article class="work-card reveal" tabindex="0">
-              <div class="work-card__media">
-                <div class="work-card__mock mock--brand">
-                  <div class="mock-brand"></div>
-                  <div class="mock-line"></div>
-                  <div class="mock-line short"></div>
-                  <div class="mock-block"></div>
-                </div>
-              </div>
-              <div class="work-card__body">
-                <div class="work-meta">
-                  <span class="badge">Branding</span>
-                  <span class="badge badge--soft">Marketing</span>
-                </div>
-                <h3 class="h3">Identity + campaign kit</h3>
-                <p>
-                  Brand system, content templates, and launch assets designed
-                  for consistency.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- STATS COUNTERS -->
-      <section class="section">
-        <div class="container">
-          <div class="stats reveal" aria-label="Key stats">
-            <div class="stat">
-              <div class="stat__num">
-                <span data-counter data-to="35">0</span
-                ><span class="stat__unit">%</span>
-              </div>
-              <div class="stat__label">
-                Average lift in conversion-focused redesigns
-              </div>
-            </div>
-            <div class="stat">
-              <div class="stat__num">
-                <span data-counter data-to="120">0</span
-                ><span class="stat__unit">ms</span>
-              </div>
-              <div class="stat__label">Motion target for UI responsiveness</div>
-            </div>
-            <div class="stat">
-              <div class="stat__num">
-                <span data-counter data-to="5">0</span
-                ><span class="stat__unit">x</span>
-              </div>
-              <div class="stat__label">
-                Faster content iteration with a clean system
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOUNDERS SPOTLIGHT PREVIEW -->
-      <section class="section section--tight section--alt">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 class="h2">Built by Experts. Driven by Vision.</h2>
-            <p class="subhead">
-              Leadership that understands both delivery pressure and brand
-              perception.
-            </p>
-            <div class="section-head__actions">
-              <a class="btn btn--ghost" href="about.html#leadership"
-                >Meet leadership <span aria-hidden="true">→</span></a
-              >
-            </div>
-          </div>
-
-          <div class="leaders-preview">
-            <article class="leader-card reveal">
-              <div class="leader-card__img" aria-hidden="true">
-                <div class="leader-ring"></div>
-                <div class="leader-avatar">MD</div>
-              </div>
-              <div class="leader-card__body">
-                <div class="leader-card__role">Founder / Managing Director</div>
-                <div class="leader-card__quote">
-                  “We don’t just deliver. We build confidence.”
-                </div>
-                <div class="leader-card__meta">
-                  <span class="mini">Placeholder Name</span>
-                  <span class="dot" aria-hidden="true"></span>
-                  <a class="mini link" href="about.html#leadership"
-                    >View profile</a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <article class="leader-card reveal">
-              <div class="leader-card__img" aria-hidden="true">
-                <div class="leader-ring"></div>
-                <div class="leader-avatar">TD</div>
-              </div>
-              <div class="leader-card__body">
-                <div class="leader-card__role">
-                  Technical Director / Solutions Architect
-                </div>
-                <div class="leader-card__quote">
-                  “Systems should be clean, resilient, and easy to scale.”
-                </div>
-                <div class="leader-card__meta">
-                  <span class="mini">Placeholder Name</span>
-                  <span class="dot" aria-hidden="true"></span>
-                  <a class="mini link" href="about.html#leadership"
-                    >View profile</a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <article class="leader-card reveal">
-              <div class="leader-card__img" aria-hidden="true">
-                <div class="leader-ring"></div>
-                <div class="leader-avatar">CD</div>
-              </div>
-              <div class="leader-card__body">
-                <div class="leader-card__role">
-                  Creative Director / Marketing Lead
-                </div>
-                <div class="leader-card__quote">
-                  “Design is strategy you can see.”
-                </div>
-                <div class="leader-card__meta">
-                  <span class="mini">Placeholder Name</span>
-                  <span class="dot" aria-hidden="true"></span>
-                  <a class="mini link" href="about.html#leadership"
-                    >View profile</a
-                  >
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- STRONG CTA -->
-      <section class="section cta">
-        <div class="container">
-          <div class="cta__card reveal">
-            <div class="cta__left">
-              <h2 class="h2">Ready to ship something that feels premium?</h2>
-              <p class="subhead">
-                Tell us what you’re building. We’ll respond with clear next
-                steps and a realistic plan.
-              </p>
-            </div>
-            <div class="cta__right">
-              <a class="btn btn--primary" href="contact.html">
-                Start a Project
-                <span class="btn__shine" aria-hidden="true"></span>
-              </a>
-              <a class="btn btn--ghost" href="mailto:info@malkastudios.com"
-                >Email us <span aria-hidden="true">→</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer__grid">
-        <div class="footer__brand">
-          <div class="brand brand--footer">
+        <div class="hero-visual reveal">
+          <div class="hero-slider">
+            <!-- Replace these local image paths with your own images later -->
             <img
-              id="siteLogoFooter"
-              src="assets/images/logo-light.png"
-              alt="Malka Studios Logo"
-              class="brand__logo"
+              src="assets/images/placeholder-hero-1.jpg"
+              alt="Malka Studio digital solutions showcase 1"
+              class="slide active"
+              loading="eager"
+            />
+            <img
+              src="assets/images/placeholder-hero-2.jpg"
+              alt="Malka Studio digital solutions showcase 2"
+              class="slide"
+              loading="lazy"
+            />
+            <img
+              src="assets/images/placeholder-hero-3.jpg"
+              alt="Malka Studio digital solutions showcase 3"
+              class="slide"
+              loading="lazy"
             />
           </div>
-          <p class="footer__blurb">
-            IT Solutions, Consulting, and Media Marketing. Built with care,
-            performance, and a bold point of view.
+
+          <div class="floating-card card-a">
+            <strong>Creative + Technical</strong>
+            <span>Balanced websites and business solutions</span>
+          </div>
+
+          <div class="floating-card card-b">
+            <strong>Built to Engage</strong>
+            <span>Clean experiences with strong visual flow</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro Strip -->
+    <section class="section intro-strip">
+      <div class="container intro-strip-grid reveal">
+        <div>
+          <p class="section-label">Who we are</p>
+          <h2>A solutions company focused on clarity, design, and growth.</h2>
+        </div>
+        <div>
+          <p>
+            We help businesses improve their digital presence through strategy,
+            design, development, and smart marketing support. Every project is built
+            to look professional, work smoothly, and guide people toward action.
           </p>
         </div>
+      </div>
+    </section>
 
-        <div class="footer__col">
-          <div class="footer__title">Company</div>
-          <a class="footer__link" href="about.html">About</a>
-          <a class="footer__link" href="services.html">Services</a>
-          <a class="footer__link" href="portfolio.html">Portfolio</a>
-          <a class="footer__link" href="blog.html">Insights</a>
+    <!-- Services Preview -->
+    <section class="section services-preview">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-label">What we do</p>
+          <h2>Services designed to make your business stand out online.</h2>
         </div>
 
-        <div class="footer__col">
-          <div class="footer__title">Contact</div>
-          <a class="footer__link" href="mailto:info@malkastudios.com"
-            >info@malkastudios.com</a
-          >
-          <div class="footer__muted">+27 XX XXX XXXX</div>
-          <div class="footer__muted">South Africa</div>
-          <a class="footer__link" href="contact.html">Contact page</a>
-        </div>
+        <div class="service-cards">
+          <article class="service-card reveal">
+            <img
+              src="assets/images/placeholder-service-1.jpg"
+              alt="IT consulting service"
+              loading="lazy"
+            />
+            <h3>IT Consulting</h3>
+            <p>
+              Practical digital guidance, business-focused technology advice, and
+              solutions planning that support your next move.
+            </p>
+            <a href="services.html">Learn more</a>
+          </article>
 
-        <div class="footer__col">
-          <div class="footer__title">Social</div>
-          <a class="footer__link" href="#" aria-label="LinkedIn (placeholder)"
-            >LinkedIn</a
-          >
-          <a class="footer__link" href="#" aria-label="Instagram (placeholder)"
-            >Instagram</a
-          >
-          <a class="footer__link" href="#" aria-label="X (placeholder)">X</a>
-          <button class="footer__link linklike" type="button" data-open-palette>
-            Quick Jump (Ctrl K)
-          </button>
+          <article class="service-card reveal">
+            <img
+              src="assets/images/placeholder-service-2.jpg"
+              alt="Website design and development service"
+              loading="lazy"
+            />
+            <h3>Website Design & Development</h3>
+            <p>
+              Modern websites that look sharp, load cleanly, and are structured to
+              keep users engaged from the first scroll.
+            </p>
+            <a href="services.html">Learn more</a>
+          </article>
+
+          <article class="service-card reveal">
+            <img
+              src="assets/images/placeholder-service-3.jpg"
+              alt="Marketing and social media service"
+              loading="lazy"
+            />
+            <h3>Marketing & Social Media</h3>
+            <p>
+              Content-driven digital visibility support that helps your business
+              communicate clearly and reach more people online.
+            </p>
+            <a href="services.html">Learn more</a>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="container footer__bottom">
-        <span class="footer__muted"
-          >© <span id="year"></span> Malka Studios. All rights reserved.</span
-        >
-        <a class="footer__link underline" href="#top">Back to top</a>
+    <!-- Why Choose Us -->
+    <section class="section why-us">
+      <div class="container why-grid">
+        <div class="why-image reveal">
+          <img
+            src="assets/images/placeholder-about.jpg"
+            alt="Team planning creative business solutions"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="why-copy reveal">
+          <p class="section-label">Why choose us</p>
+          <h2>We keep things modern, clear, and focused on real business value.</h2>
+
+          <div class="feature-list">
+            <div>
+              <h3>Clean user journeys</h3>
+              <p>
+                We structure content so visitors stay interested without feeling
+                overloaded.
+              </p>
+            </div>
+
+            <div>
+              <h3>Strong brand presentation</h3>
+              <p>
+                We combine visuals, layout, and messaging to help your business look
+                established and trustworthy.
+              </p>
+            </div>
+
+            <div>
+              <h3>Built for growth</h3>
+              <p>
+                Our websites are prepared for future upgrades, content expansion, and
+                stronger digital campaigns.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- Stats -->
+    <section class="section stats-section">
+      <div class="container">
+        <div class="stats-grid reveal">
+          <div class="stat-box">
+            <span class="counter" data-target="100">0</span>
+            <p>Ideas crafted with purpose</p>
+          </div>
+
+          <div class="stat-box">
+            <span class="counter" data-target="24">0</span>
+            <p>Hours of digital visibility</p>
+          </div>
+
+          <div class="stat-box">
+            <span class="counter" data-target="6">0</span>
+            <p>Core solution areas</p>
+          </div>
+
+          <div class="stat-box">
+            <span class="counter" data-target="2">0</span>
+            <p>Direct WhatsApp contacts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Preview -->
+    <section class="section portfolio-preview">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="section-label">Featured work</p>
+          <h2>A visual look at how your next project could be presented.</h2>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="project-card reveal">
+            <img
+              src="assets/images/placeholder-project-1.jpg"
+              alt="Business website project preview"
+              loading="lazy"
+            />
+            <div class="project-content">
+              <span>Web Design</span>
+              <h3>Business Identity Website</h3>
+              <p>
+                A polished online presence created to improve first impressions and
+                encourage direct enquiries.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <img
+              src="assets/images/placeholder-project-2.jpg"
+              alt="Marketing campaign project preview"
+              loading="lazy"
+            />
+            <div class="project-content">
+              <span>Marketing</span>
+              <h3>Campaign Support Layout</h3>
+              <p>
+                A modern digital campaign structure built to showcase content clearly
+                across platforms.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <img
+              src="assets/images/placeholder-project-3.jpg"
+              alt="IT consulting project preview"
+              loading="lazy"
+            />
+            <div class="project-content">
+              <span>Solutions</span>
+              <h3>Consulting-Led Digital Upgrade</h3>
+              <p>
+                A practical solution concept combining consulting, technical
+                structure, and user-friendly presentation.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-cta reveal">
+          <a href="portfolio.html" class="btn btn-primary">View More Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Preview -->
+  <section class="section social-live-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <p class="section-label">Live Social Preview</p>
+      <h2>See what Malca Studio is sharing online.</h2>
+      <p>
+        Real preview windows for your social platforms. Replace the placeholder links
+        and IDs below with your actual content.
+      </p>
+    </div>
+
+    <div class="social-live-grid">
+
+      <!-- Instagram Preview Window -->
+      <article class="social-window reveal">
+        <div class="social-window-header">
+          <h3>Instagram</h3>
+          <a href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener noreferrer">Visit Page</a>
+        </div>
+
+        <div class="social-window-body instagram-preview-list">
+          <!-- Replace these blockquotes with real Instagram embed code -->
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_1/"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:12px; margin:0 auto 18px; max-width:540px; min-width:326px; width:100%;"
+          ></blockquote>
+
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_2/"
+            data-instgrm-version="14"
+            style="background:#FFF; border:0; border-radius:12px; margin:0 auto; max-width:540px; min-width:326px; width:100%;"
+          ></blockquote>
+        </div>
+      </article>
+
+      <!-- TikTok Preview Window -->
+      <article class="social-window reveal">
+        <div class="social-window-header">
+          <h3>TikTok</h3>
+          <a href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener noreferrer">Visit Page</a>
+        </div>
+
+        <div class="social-window-body tiktok-preview-list">
+          <!-- Replace video IDs and usernames -->
+          <blockquote
+            class="tiktok-embed"
+            cite="https://www.tiktok.com/@YOUR_USERNAME/video/YOUR_VIDEO_ID_1"
+            data-video-id="YOUR_VIDEO_ID_1"
+            style="max-width: 605px; min-width: 325px;"
+          >
+            <section></section>
+          </blockquote>
+
+          <blockquote
+            class="tiktok-embed"
+            cite="https://www.tiktok.com/@YOUR_USERNAME/video/YOUR_VIDEO_ID_2"
+            data-video-id="YOUR_VIDEO_ID_2"
+            style="max-width: 605px; min-width: 325px;"
+          >
+            <section></section>
+          </blockquote>
+        </div>
+      </article>
+
+      <!-- Facebook Preview Window -->
+      <article class="social-window reveal">
+        <div class="social-window-header">
+          <h3>Facebook</h3>
+          <a href="YOUR_FACEBOOK_LINK" target="_blank" rel="noopener noreferrer">Visit Page</a>
+        </div>
+
+        <div class="social-window-body facebook-preview-wrap">
+          <div
+            class="fb-page"
+            data-href="YOUR_FACEBOOK_LINK"
+            data-tabs="timeline"
+            data-width="500"
+            data-height="700"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="true"
+          >
+            <blockquote cite="YOUR_FACEBOOK_LINK" class="fb-xfbml-parse-ignore">
+              <a href="YOUR_FACEBOOK_LINK">Malca Studio on Facebook</a>
+            </blockquote>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Instagram embed script -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<!-- TikTok embed script -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v25.0">
+</script>
+
+    <!-- CTA Banner -->
+    <section class="section cta-banner">
+      <div class="container cta-banner-inner reveal">
+        <div>
+          <p class="section-label light">Ready to build something strong?</p>
+          <h2>Let Malka Studio help you shape a better digital presence.</h2>
+        </div>
+
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-light">Contact Us</a>
+          <a href="process.html" class="btn btn-outline-light">See Our Process</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Loads Here -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Back To Top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- WhatsApp Floating Widget -->
+  <div class="whatsapp-widget">
+    <button
+      id="whatsappToggle"
+      class="whatsapp-toggle"
+      aria-label="Open WhatsApp contact options"
+    >
+      <span>WhatsApp</span>
+    </button>
+
+    <div id="whatsappMenu" class="whatsapp-menu">
+      <!-- Replace these placeholders with actual WhatsApp numbers -->
+      <a href="https://wa.me/SMANGA_WHATSAPP_NUMBER" target="_blank" rel="noopener noreferrer">
+        Chat with Smanga
+      </a>
+      <a href="https://wa.me/MALCOLM_WHATSAPP_NUMBER" target="_blank" rel="noopener noreferrer">
+        Chat with Malcolm
+      </a>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
