@@ -157,7 +157,10 @@ p {
   z-index: 1000;
   border-bottom: 1px solid #eee;
 }
-
+#header-placeholder {
+  position: relative;
+  z-index: 1000;
+}
 .header-inner {
   display: flex;
   justify-content: space-between;
@@ -301,7 +304,7 @@ p {
 }
 
 .footer-logo {
-  width: 50px;
+  width: 100px;
   margin-bottom: 10px;
 }
 
