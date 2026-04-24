@@ -1,5 +1,5 @@
 /* =========================================
-   MALCA STUDIO MAIN JS
+   MALKA STUDIO MAIN JS
    Handles:
    - shared header/footer loading
    - current nav highlighting

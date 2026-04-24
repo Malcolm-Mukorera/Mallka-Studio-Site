@@ -1,37 +1,376 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <title>404 | Malka Studios</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script defer src="assets/js/app.js"></script>
-  </head>
+  <title>404 | Page Not Found | Malka Studio</title>
+  <meta name="description" content="The page you are looking for could not be found." />
+  <meta name="robots" content="noindex, follow" />
 
-  <body class="page page-404">
-    <div class="page-fade"></div>
-    <div class="scroll-progress"><div class="scroll-progress__bar"></div></div>
-    <div class="cursor-glow"></div>
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="stylesheet" href="css/global.css" />
 
-    <main class="error-404">
-      <div class="error-card reveal">
-        <div class="error-code">404</div>
-        <h1>This page doesn’t exist.</h1>
-        <p>
-          Either the link is broken or the page moved. Let’s get you back
-          somewhere useful.
-        </p>
+  <style>
+    body[data-page="404"] {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(225, 6, 0, 0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.06), transparent 28%),
+        #ffffff;
+      overflow-x: hidden;
+    }
 
-        <div class="error-actions">
-          <a class="btn btn--primary" href="index.html">
-            Back Home
-            <span class="btn__shine"></span>
-          </a>
-          <a class="btn btn--ghost" href="contact.html"> Contact Us → </a>
-        </div>
+    .error-404-page {
+      min-height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 100px 0;
+    }
+
+    .error-404-page::before,
+    .error-404-page::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .error-404-page::before {
+      width: 220px;
+      height: 220px;
+      background: rgba(225, 6, 0, 0.08);
+      top: 8%;
+      left: -70px;
+      animation: floatOrb 8s ease-in-out infinite;
+    }
+
+    .error-404-page::after {
+      width: 260px;
+      height: 260px;
+      background: rgba(0, 0, 0, 0.05);
+      bottom: 6%;
+      right: -80px;
+      animation: floatOrb 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+
+    .error-404-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .error-copy {
+      max-width: 720px;
+    }
+
+    .error-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .error-code {
+      font-size: clamp(4.5rem, 12vw, 9rem);
+      line-height: 0.9;
+      font-weight: 800;
+      color: var(--color-black);
+      margin-bottom: 14px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .error-code::after {
+      content: "404";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: rgba(225, 6, 0, 0.15);
+      transform: translate(8px, 8px);
+      z-index: -1;
+    }
+
+    .error-copy h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      max-width: 640px;
+    }
+
+    .error-copy p {
+      max-width: 620px;
+      font-size: 1.04rem;
+      margin-bottom: 28px;
+    }
+
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .error-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .error-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--color-black);
+      background: #fff;
+      border: 1px solid #ececec;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04);
+      transition: var(--transition);
+    }
+
+    .error-links a:hover {
+      color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .error-visual {
+      position: relative;
+    }
+
+    .error-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #efefef;
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .error-card-top {
+      height: 14px;
+      background: linear-gradient(90deg, var(--color-primary), #000000);
+    }
+
+    .error-card-inner {
+      padding: 28px;
+    }
+
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(225, 6, 0, 0.08);
+      color: var(--color-primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .error-mini-nav {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .error-mini-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: #fafafa;
+      border: 1px solid #f0f0f0;
+      border-radius: 14px;
+      transition: var(--transition);
+    }
+
+    .error-mini-item:hover {
+      transform: translateX(4px);
+      border-color: rgba(225, 6, 0, 0.25);
+    }
+
+    .error-mini-item strong {
+      color: var(--color-black);
+    }
+
+    .error-mini-item span {
+      color: var(--color-muted);
+      font-size: 0.92rem;
+    }
+
+    .error-help-box {
+      background: #0f0f0f;
+      color: #fff;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .error-help-box h3 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .error-help-box p {
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .error-help-box a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .error-help-box a:hover {
+      color: #ffb6b3;
+    }
+
+    .error-glow {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(225, 6, 0, 0.14);
+      filter: blur(26px);
+      top: -28px;
+      right: -20px;
+      z-index: -1;
+    }
+
+    @media (max-width: 1000px) {
+      .error-404-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .error-copy {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .error-404-page {
+        padding: 70px 0;
+      }
+
+      .error-card-inner {
+        padding: 20px;
+      }
+
+      .error-actions {
+        flex-direction: column;
+      }
+
+      .error-actions .btn {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body data-page="404">
+  <div id="header-placeholder"></div>
+
+  <main class="error-404-page">
+    <div class="container">
+      <div class="error-404-wrap">
+        <section class="error-copy reveal active">
+          <div class="error-label">Page not found</div>
+          <div class="error-code">404</div>
+          <h1>This page seems to have gone off track.</h1>
+          <p>
+            The page you’re trying to reach may have been moved, renamed, or never existed in the first place.
+            Let’s get you back to somewhere useful.
+          </p>
+
+          <div class="error-actions">
+            <a href="index.html" class="btn btn-primary">Back to Home</a>
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+          </div>
+
+          <div class="error-links">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="process.html">Our Process</a>
+          </div>
+        </section>
+
+        <aside class="error-visual reveal active">
+          <div class="error-glow"></div>
+
+          <div class="error-card">
+            <div class="error-card-top"></div>
+
+            <div class="error-card-inner">
+              <div class="error-badge">Helpful links</div>
+
+              <div class="error-mini-nav">
+                <a href="services.html" class="error-mini-item">
+                  <div>
+                    <strong>Explore Services</strong>
+                    <span>See what Malka Studio offers</span>
+                  </div>
+                  <span>→</span>
+                </a>
+
+                <a href="portfolio.html" class="error-mini-item">
+                  <div>
+                    <strong>View Portfolio</strong>
+                    <span>Browse featured work and concepts</span>
+                  </div>
+                  <span>→</span>
+                </a>
+
+                <a href="process.html" class="error-mini-item">
+                  <div>
+                    <strong>See Our Process</strong>
+                    <span>Understand how we approach projects</span>
+                  </div>
+                  <span>→</span>
+                </a>
+              </div>
+
+              <div class="error-help-box">
+                <h3>Need help right away?</h3>
+                <p>
+                  Reach out to us and we’ll help you find the right page or the right solution for your business.
+                </p>
+                <a href="contact.html">Go to contact page</a>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
