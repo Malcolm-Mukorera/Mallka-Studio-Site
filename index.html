@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/" />
 
   <title>Malka Studio | IT Consulting, Web Design & Digital Solutions</title>
   <meta
@@ -22,7 +23,7 @@
   />
   <meta property="og:type" content="website" />
 <meta property="og:url" content="https://malkastudioza.com/" />
-  <meta property="og:image" content="assets/images/logo-dark.png" />
+  <meta property="og:image" content="assets/images/logo-dark.webp" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Malka  Studio | Modern Digital Solutions" />
@@ -32,7 +33,10 @@
   />
 
   <link rel="canonical" href="https://malkastudioza.com/" />
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/home.css" />
@@ -44,8 +48,8 @@
 
   "name": "Malka Studio",
   "url": "https://malkastudioza.com/",
-  "logo": "https://malkastudioza.com/assets/images/logo-dark.png",
-  "image": "https://malkastudioza.com/assets/images/logo-dark.png",
+  "logo": "https://malkastudioza.com/assets/images/logo-dark.webp",
+  "image": "https://malkastudioza.com/assets/images/logo-dark.webp",
 
   "description": "Malka Studio is a modern IT consulting, website design, website development, and digital marketing solutions company.",
 
@@ -89,8 +93,8 @@
           </p>
 
           <div class="hero-actions">
-            <a href="services.html" class="btn btn-primary">Explore Services</a>
-            <a href="contact.html" class="btn btn-secondary">Start Your Project</a>
+            <a href="/services" class="btn btn-primary">Explore Services</a>
+            <a href="/contact" class="btn btn-secondary">Start Your Project</a>
           </div>
 
           <div class="hero-badges">
@@ -112,13 +116,13 @@
               loading="eager"
             />
             <img
-              src="assets/images/placeholder-hero-2.png"
+              src="assets/images/placeholder-hero-2.webp"
               alt="Malka Studio digital solutions showcase 2"
               class="slide"
               loading="lazy"
             />
             <img
-              src="assets/images/placeholder-hero-3.png"
+              src="assets/images/placeholder-hero-3.webp"
               alt="Malka Studio digital solutions showcase 3"
               class="slide"
               loading="lazy"
@@ -166,7 +170,7 @@
         <div class="service-cards">
           <article class="service-card reveal">
             <img
-              src="assets/images/it-consulting.png"
+              src="assets/images/consultant.webp"
               alt="IT consulting service"
               loading="lazy"
             />
@@ -175,12 +179,12 @@
               Practical digital guidance, business-focused technology advice, and
               solutions planning that support your next move.
             </p>
-            <a href="services.html">Learn more</a>
+            <a href="/services">Learn more</a>
           </article>
 
           <article class="service-card reveal">
             <img
-              src="assets/images/website-design.png"
+              src="assets/images/website-1.webp"
               alt="Website design and development service"
               loading="lazy"
             />
@@ -189,12 +193,12 @@
               Modern websites that look sharp, load cleanly, and are structured to
               keep users engaged from the first scroll.
             </p>
-            <a href="services.html">Learn more</a>
+            <a href="/services">Learn more</a>
           </article>
 
           <article class="service-card reveal">
             <img
-              src="assets/images/marketing-social-media.png"
+              src="assets/images/marketing.webp"
               alt="Marketing and social media service"
               loading="lazy"
             />
@@ -203,7 +207,7 @@
               Content-driven digital visibility support that helps your business
               communicate clearly and reach more people online.
             </p>
-            <a href="services.html">Learn more</a>
+            <a href="/services">Learn more</a>
           </article>
         </div>
       </div>
@@ -214,7 +218,7 @@
       <div class="container why-grid">
         <div class="why-image reveal">
           <img
-            src="assets/images/About-p.png"
+            src="assets/images/About-p.webp"
             alt="Team planning creative business solutions"
             loading="lazy"
           />
@@ -291,7 +295,7 @@
         <div class="portfolio-grid">
           <article class="project-card reveal">
             <img
-              src="assets/images/website-1.png"
+              src="assets/images/website-1.webp"
               alt="Business website project preview"
               loading="lazy"
             />
@@ -307,7 +311,7 @@
 
           <article class="project-card reveal">
             <img
-              src="assets/images/marketing.png"
+              src="assets/images/marketing.webp"
               alt="Marketing campaign project preview"
               loading="lazy"
             />
@@ -323,7 +327,7 @@
 
           <article class="project-card reveal">
             <img
-              src="assets/images/consultant.png"
+              src="assets/images/consultant.webp"
               alt="IT consulting project preview"
               loading="lazy"
             />
@@ -339,7 +343,7 @@
         </div>
 
         <div class="section-cta reveal">
-          <a href="portfolio.html" class="btn btn-primary">View More Projects</a>
+          <a href="/portfolio" class="btn btn-primary">View More Projects</a>
         </div>
       </div>
     </section>
@@ -351,8 +355,8 @@
       <p class="section-label">Live Social Preview</p>
       <h2>See what Malka Studio is sharing online.</h2>
       <p>
-        Real preview windows for your social platforms. Replace the placeholder links
-        and IDs below with your actual content.
+        A rolling preview of the kind of updates, project posts, and social content
+        Malka Studio shares across platforms.
       </p>
     </div>
 
@@ -365,21 +369,57 @@
           <a href="https://www.instagram.com/malka.studio_/" target="_blank" rel="noopener noreferrer">Visit Page</a>
         </div>
 
-        <div class="social-window-body instagram-preview-list">
-          <!-- Replace these blockquotes with real Instagram embed code -->
-          <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_1/"
-            data-instgrm-version="14"
-            style="background:#FFF; border:0; border-radius:12px; margin:0 auto 18px; max-width:540px; min-width:326px; width:100%;"
-          ></blockquote>
-
-          <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/YOUR_POST_ID_2/"
-            data-instgrm-version="14"
-            style="background:#FFF; border:0; border-radius:12px; margin:0 auto; max-width:540px; min-width:326px; width:100%;"
-          ></blockquote>
+        <div class="social-window-body social-preview-feed">
+          <div class="social-post-track instagram-track">
+            <article class="social-post-card">
+              <img src="assets/images/website-1.webp" alt="Website launch preview" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Website Launch</h4>
+                <p>Clean layouts, sharper messaging, and a digital home built to convert visitors.</p>
+              </div>
+            </article>
+            <article class="social-post-card">
+              <img src="assets/images/marketing.webp" alt="Marketing campaign preview" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Campaign Ready</h4>
+                <p>Content ideas shaped for visibility across Instagram, TikTok, and Facebook.</p>
+              </div>
+            </article>
+            <article class="social-post-card">
+              <img src="assets/images/consultant.webp" alt="Consulting work preview" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Digital Strategy</h4>
+                <p>Practical tech guidance for brands that want smoother online systems.</p>
+              </div>
+            </article>
+            <article class="social-post-card" aria-hidden="true">
+              <img src="assets/images/website-1.webp" alt="" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Website Launch</h4>
+                <p>Clean layouts, sharper messaging, and a digital home built to convert visitors.</p>
+              </div>
+            </article>
+            <article class="social-post-card" aria-hidden="true">
+              <img src="assets/images/marketing.webp" alt="" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Campaign Ready</h4>
+                <p>Content ideas shaped for visibility across Instagram, TikTok, and Facebook.</p>
+              </div>
+            </article>
+            <article class="social-post-card" aria-hidden="true">
+              <img src="assets/images/consultant.webp" alt="" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Digital Strategy</h4>
+                <p>Practical tech guidance for brands that want smoother online systems.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </article>
 
@@ -387,28 +427,60 @@
       <article class="social-window reveal">
         <div class="social-window-header">
           <h3>TikTok</h3>
-          <a href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener noreferrer">Visit Page</a>
+          <a href="https://www.tiktok.com/@malka.studio_" target="_blank" rel="noopener noreferrer">Visit Page</a>
         </div>
 
-        <div class="social-window-body tiktok-preview-list">
-          <!-- Replace video IDs and usernames -->
-          <blockquote
-            class="tiktok-embed"
-            cite="https://www.tiktok.com/@YOUR_USERNAME/video/YOUR_VIDEO_ID_1"
-            data-video-id="YOUR_VIDEO_ID_1"
-            style="max-width: 605px; min-width: 325px;"
-          >
-            <section></section>
-          </blockquote>
-
-          <blockquote
-            class="tiktok-embed"
-            cite="https://www.tiktok.com/@YOUR_USERNAME/video/YOUR_VIDEO_ID_2"
-            data-video-id="YOUR_VIDEO_ID_2"
-            style="max-width: 605px; min-width: 325px;"
-          >
-            <section></section>
-          </blockquote>
+        <div class="social-window-body social-preview-feed">
+          <div class="social-post-track tiktok-track">
+            <article class="social-post-card video-style">
+              <img src="assets/images/marketing.webp" alt="Short-form marketing video preview" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Quick Brand Tips</h4>
+                <p>Short, useful videos that make digital decisions easier to understand.</p>
+              </div>
+            </article>
+            <article class="social-post-card video-style">
+              <img src="assets/images/About-p.webp" alt="Studio process video preview" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Behind the Process</h4>
+                <p>A look at how we shape service ideas into polished client experiences.</p>
+              </div>
+            </article>
+            <article class="social-post-card video-style">
+              <img src="assets/images/about-pic.webp" alt="Business solution video preview" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Design Breakdowns</h4>
+                <p>Simple before-and-after thinking for stronger websites and content.</p>
+              </div>
+            </article>
+            <article class="social-post-card video-style" aria-hidden="true">
+              <img src="assets/images/marketing.webp" alt="" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Quick Brand Tips</h4>
+                <p>Short, useful videos that make digital decisions easier to understand.</p>
+              </div>
+            </article>
+            <article class="social-post-card video-style" aria-hidden="true">
+              <img src="assets/images/About-p.webp" alt="" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Behind the Process</h4>
+                <p>A look at how we shape service ideas into polished client experiences.</p>
+              </div>
+            </article>
+            <article class="social-post-card video-style" aria-hidden="true">
+              <img src="assets/images/about-pic.webp" alt="" loading="lazy" />
+              <div>
+                <span>@malka.studio_</span>
+                <h4>Design Breakdowns</h4>
+                <p>Simple before-and-after thinking for stronger websites and content.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </article>
 
@@ -416,24 +488,59 @@
       <article class="social-window reveal">
         <div class="social-window-header">
           <h3>Facebook</h3>
-          <a href="YOUR_FACEBOOK_LINK" target="_blank" rel="noopener noreferrer">Visit Page</a>
+          <a href="https://www.facebook.com/malkastudio" target="_blank" rel="noopener noreferrer">Visit Page</a>
         </div>
 
-        <div class="social-window-body facebook-preview-wrap">
-          <div
-            class="fb-page"
-            data-href="YOUR_FACEBOOK_LINK"
-            data-tabs="timeline"
-            data-width="500"
-            data-height="700"
-            data-small-header="false"
-            data-adapt-container-width="true"
-            data-hide-cover="false"
-            data-show-facepile="true"
-          >
-            <blockquote cite="YOUR_FACEBOOK_LINK" class="fb-xfbml-parse-ignore">
-              <a href="YOUR_FACEBOOK_LINK">Malka Studio on Facebook</a>
-            </blockquote>
+        <div class="social-window-body social-preview-feed">
+          <div class="social-post-track facebook-track">
+            <article class="social-post-card">
+              <img src="assets/images/consultant.webp" alt="Business consulting Facebook post preview" loading="lazy" />
+              <div>
+                <span>Malka Studio</span>
+                <h4>Business Support</h4>
+                <p>Digital planning, consulting, and implementation support for growing businesses.</p>
+              </div>
+            </article>
+            <article class="social-post-card">
+              <img src="assets/images/website-1.webp" alt="Website design Facebook post preview" loading="lazy" />
+              <div>
+                <span>Malka Studio</span>
+                <h4>New Website Concepts</h4>
+                <p>Fresh layouts designed to help brands look trusted from the first click.</p>
+              </div>
+            </article>
+            <article class="social-post-card">
+              <img src="assets/images/marketing.webp" alt="Marketing Facebook post preview" loading="lazy" />
+              <div>
+                <span>Malka Studio</span>
+                <h4>Marketing Momentum</h4>
+                <p>Consistent content planning for businesses that want to stay visible.</p>
+              </div>
+            </article>
+            <article class="social-post-card" aria-hidden="true">
+              <img src="assets/images/consultant.webp" alt="" loading="lazy" />
+              <div>
+                <span>Malka Studio</span>
+                <h4>Business Support</h4>
+                <p>Digital planning, consulting, and implementation support for growing businesses.</p>
+              </div>
+            </article>
+            <article class="social-post-card" aria-hidden="true">
+              <img src="assets/images/website-1.webp" alt="" loading="lazy" />
+              <div>
+                <span>Malka Studio</span>
+                <h4>New Website Concepts</h4>
+                <p>Fresh layouts designed to help brands look trusted from the first click.</p>
+              </div>
+            </article>
+            <article class="social-post-card" aria-hidden="true">
+              <img src="assets/images/marketing.webp" alt="" loading="lazy" />
+              <div>
+                <span>Malka Studio</span>
+                <h4>Marketing Momentum</h4>
+                <p>Consistent content planning for businesses that want to stay visible.</p>
+              </div>
+            </article>
           </div>
         </div>
       </article>
@@ -441,18 +548,6 @@
     </div>
   </div>
 </section>
-
-<!-- Instagram embed script -->
-<script async src="https://www.instagram.com/embed.js"></script>
-
-<!-- TikTok embed script -->
-<script async src="https://www.tiktok.com/embed.js"></script>
-
-<!-- Facebook SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v25.0">
-</script>
 
     <!-- CTA Banner -->
     <section class="section cta-banner">
@@ -463,8 +558,8 @@
         </div>
 
         <div class="cta-actions">
-          <a href="contact.html" class="btn btn-light">Contact Us</a>
-          <a href="process.html" class="btn btn-outline-light">See Our Process</a>
+          <a href="/contact" class="btn btn-light">Contact Us</a>
+          <a href="/process" class="btn btn-outline-light">See Our Process</a>
         </div>
       </div>
     </section>

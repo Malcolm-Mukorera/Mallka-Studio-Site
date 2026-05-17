@@ -16,6 +16,7 @@
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  cleanCurrentUrl();
   loadSharedComponents();
   initRevealOnScroll();
   initHeroSlider();
@@ -26,6 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactFormValidation();
   initPortfolioFilter();
 });
+
+/* =========================================
+   CLEAN URL DISPLAY
+========================================= */
+function cleanCurrentUrl() {
+  const cleanPath = window.location.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+  if (cleanPath !== window.location.pathname) {
+    window.history.replaceState({}, "", cleanPath + window.location.search + window.location.hash);
+  }
+}
 
 /* =========================================
    LOAD SHARED HEADER / FOOTER
