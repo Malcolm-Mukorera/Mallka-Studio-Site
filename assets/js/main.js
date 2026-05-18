@@ -85,20 +85,41 @@ function setActiveNavLink() {
 function initMobileNav() {
   const navToggle = document.getElementById("navToggle");
   const mobileNav = document.getElementById("mobileNav");
+  const navClose = document.getElementById("navClose");
 
   if (!navToggle || !mobileNav) return;
 
+  const closeMobileNav = () => {
+    mobileNav.classList.remove("open");
+    navToggle.classList.remove("active");
+    document.body.classList.remove("nav-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
   navToggle.addEventListener("click", () => {
     const isOpen = mobileNav.classList.toggle("open");
+    navToggle.classList.toggle("active", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
   const mobileLinks = mobileNav.querySelectorAll("a");
   mobileLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileNav.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeMobileNav);
+  });
+
+  if (navClose) {
+    navClose.addEventListener("click", closeMobileNav);
+  }
+
+  document.addEventListener("click", (event) => {
+    if (
+      mobileNav.classList.contains("open") &&
+      !mobileNav.contains(event.target) &&
+      !navToggle.contains(event.target)
+    ) {
+      closeMobileNav();
+    }
   });
 }
 
