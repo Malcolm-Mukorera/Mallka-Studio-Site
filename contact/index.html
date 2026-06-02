@@ -10,6 +10,15 @@
     name="description"
     content="Get in touch with Malka Studio for IT consulting, website design, development, and marketing solutions."
   />
+  <meta property="og:title" content="Contact | Malka Studio" />
+  <meta property="og:description" content="Get in touch with Malka Studio for IT consulting, website design, development, and marketing solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://malkastudioza.com/contact" />
+  <meta property="og:image" content="https://malkastudioza.com/assets/images/logo-dark.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact | Malka Studio" />
+  <meta name="twitter:description" content="Get in touch with Malka Studio for IT consulting, website design, development, and marketing solutions." />
+  <meta name="twitter:image" content="https://malkastudioza.com/assets/images/logo-dark.webp" />
 
   <link rel="canonical" href="https://malkastudioza.com/contact" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
@@ -59,19 +68,19 @@
 
             <div class="form-group">
               <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required />
-              <small class="error-message"></small>
+              <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error" />
+              <small class="error-message" id="name-error"></small>
             </div>
 
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-              <small class="error-message"></small>
+              <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error" />
+              <small class="error-message" id="email-error"></small>
             </div>
 
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" />
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
             </div>
 
             <div class="form-group">
@@ -81,7 +90,7 @@
 
             <div class="form-group">
               <label for="service">Service Needed</label>
-              <select id="service" name="service" required>
+              <select id="service" name="service" required aria-describedby="service-error">
                 <option value="">Select a service</option>
                 <option value="it-consulting">IT Consulting</option>
                 <option value="web-design">Website Design</option>
@@ -90,13 +99,13 @@
                 <option value="social-media">Social Media Marketing</option>
                 <option value="full-solution">Full Digital Solution</option>
               </select>
-              <small class="error-message"></small>
+              <small class="error-message" id="service-error"></small>
             </div>
 
             <div class="form-group">
               <label for="message">Your Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-              <small class="error-message"></small>
+              <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+              <small class="error-message" id="message-error"></small>
             </div>
 
             <button type="submit" class="btn btn-primary">Send Message</button>
@@ -120,10 +129,10 @@
           <div class="contact-block">
             <h3>WhatsApp</h3>
             <div class="contact-whatsapp">
-              <a href="https://wa.me/+27810630088" target="_blank">
+              <a href="https://wa.me/+27810630088" target="_blank" rel="noopener noreferrer">
                 Chat with Smanga
               </a>
-              <a href="https://wa.me/+27603823375" target="_blank">
+              <a href="https://wa.me/+27603823375" target="_blank" rel="noopener noreferrer">
                 Chat with Malcolm
               </a>
             </div>
@@ -132,9 +141,9 @@
           <div class="contact-block">
             <h3>Follow us</h3>
             <div class="social-links">
-              <a href="https://www.instagram.com/malka.studio_/" target="_blank">Instagram</a>
-              <a href="https://www.tiktok.com/@malka.studio_" target="_blank">TikTok</a>
-              <a href="https://www.facebook.com/malkastudio" target="_blank">Facebook</a>
+              <a href="https://www.instagram.com/malka.studio_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.tiktok.com/@malka.studio_" target="_blank" rel="noopener noreferrer">TikTok</a>
+              <a href="https://www.facebook.com/malkastudio" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
           </div>
         </div>
@@ -147,15 +156,16 @@
       <div class="container reveal">
         <h2>Our location</h2>
 
-        <!-- Replace iframe src with your real Google Maps embed -->
         <div class="map-placeholder">
           <iframe
-            src="YOUR_GOOGLE_MAPS_LINK"
+            src="https://www.google.com/maps?q=Pietermaritzburg%2C%20South%20Africa&output=embed"
+            title="Map showing Pietermaritzburg, South Africa"
             width="100%"
             height="400"
             style="border:0;"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
           ></iframe>
         </div>
       </div>
@@ -172,7 +182,7 @@
         <div class="faq-list">
 
           <div class="faq-item reveal">
-            <button class="faq-question">
+            <button class="faq-question" type="button">
               How long does a website take to build?
             </button>
             <div class="faq-answer">
@@ -184,7 +194,7 @@
           </div>
 
           <div class="faq-item reveal">
-            <button class="faq-question">
+            <button class="faq-question" type="button">
               Do you offer ongoing support?
             </button>
             <div class="faq-answer">
@@ -196,7 +206,7 @@
           </div>
 
           <div class="faq-item reveal">
-            <button class="faq-question">
+            <button class="faq-question" type="button">
               Can you help with social media as well?
             </button>
             <div class="faq-answer">
@@ -232,18 +242,18 @@
 
   <!-- WhatsApp Widget -->
   <div class="whatsapp-widget">
-    <button id="whatsappToggle" class="whatsapp-toggle">WhatsApp</button>
+    <button id="whatsappToggle" class="whatsapp-toggle" type="button" aria-label="Open WhatsApp contact options">WhatsApp</button>
 
     <div id="whatsappMenu" class="whatsapp-menu">
-      <a href="https://wa.me/+27810630088" target="_blank">
+      <a href="https://wa.me/+27810630088" target="_blank" rel="noopener noreferrer">
         Chat with Smanga
       </a>
-      <a href="https://wa.me/+27603823375" target="_blank">
+      <a href="https://wa.me/+27603823375" target="_blank" rel="noopener noreferrer">
         Chat with Malcolm
       </a>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

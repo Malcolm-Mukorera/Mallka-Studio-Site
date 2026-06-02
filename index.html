@@ -12,7 +12,7 @@
   />
   <meta
     name="keywords"
-    content="Malka   Studio, IT consulting, website design, website development, social media marketing, digital solutions"
+    content="Malka Studio, IT consulting, website design, website development, social media marketing, digital solutions"
   />
   <meta name="author" content="Malka Studio" />
 
@@ -22,15 +22,16 @@
     content="Professional IT consulting, website design, website development, and marketing solutions for modern businesses."
   />
   <meta property="og:type" content="website" />
-<meta property="og:url" content="https://malkastudioza.com/" />
-  <meta property="og:image" content="assets/images/logo-dark.webp" />
+  <meta property="og:url" content="https://malkastudioza.com/" />
+  <meta property="og:image" content="https://malkastudioza.com/assets/images/logo-dark.webp" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Malka  Studio | Modern Digital Solutions" />
+  <meta name="twitter:title" content="Malka Studio | Modern Digital Solutions" />
   <meta
     name="twitter:description"
     content="Professional IT consulting, website design, website development, and marketing solutions for modern businesses."
   />
+  <meta name="twitter:image" content="https://malkastudioza.com/assets/images/logo-dark.webp" />
 
   <link rel="canonical" href="https://malkastudioza.com/" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
@@ -40,6 +41,7 @@
 
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="preload" as="image" href="assets/images/placeholder-hero-1.webp" fetchpriority="high" />
 
 <script type="application/ld+json">
 {
@@ -58,6 +60,8 @@
 
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Pietermaritzburg",
+    "addressRegion": "KwaZulu-Natal",
     "addressCountry": "ZA"
   },
 
@@ -73,9 +77,6 @@
 </script>
 </head>
 <body data-page="home">
-  <!-- Page Loader -->
-
-
   <!-- Shared Header Loads Here -->
   <div id="header-placeholder"></div>
 
@@ -108,24 +109,30 @@
 
         <div class="hero-visual reveal">
           <div class="hero-slider">
-            <!-- Replace these local image paths with your own images later -->
             <img
-              src="assets/images/placeholder-hero-1.png"
+              src="assets/images/placeholder-hero-1.webp"
               alt="Malka Studio digital solutions showcase 1"
               class="slide active"
               loading="eager"
+              fetchpriority="high"
+              width="940"
+              height="788"
             />
             <img
               src="assets/images/placeholder-hero-2.webp"
               alt="Malka Studio digital solutions showcase 2"
               class="slide"
               loading="lazy"
+              width="940"
+              height="788"
             />
             <img
               src="assets/images/placeholder-hero-3.webp"
               alt="Malka Studio digital solutions showcase 3"
               class="slide"
               loading="lazy"
+              width="1254"
+              height="1254"
             />
           </div>
 
@@ -577,12 +584,12 @@
       id="whatsappToggle"
       class="whatsapp-toggle"
       aria-label="Open WhatsApp contact options"
+      type="button"
     >
       <span>WhatsApp</span>
     </button>
 
     <div id="whatsappMenu" class="whatsapp-menu">
-      <!-- Replace these placeholders with actual WhatsApp numbers -->
       <a href="https://wa.me/+27810630088" target="_blank" rel="noopener noreferrer">
         Chat with Smanga
       </a>
@@ -592,6 +599,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

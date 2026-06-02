@@ -7,8 +7,8 @@
   background:
     linear-gradient(135deg, rgba(225, 6, 0, 0.05), rgba(0, 0, 0, 0.02)),
     #ffffff;
-  padding-top: 100px;
-  padding-bottom: 80px;
+  padding-top: clamp(70px, 9vw, 100px);
+  padding-bottom: clamp(58px, 8vw, 80px);
 }
 
 .page-hero h1 {
@@ -123,11 +123,6 @@
 }
 
 @media (max-width: 600px) {
-  .page-hero {
-    padding-top: 70px;
-    padding-bottom: 60px;
-  }
-
   .benefits-grid {
     grid-template-columns: 1fr;
   }

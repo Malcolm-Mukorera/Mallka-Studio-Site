@@ -47,13 +47,15 @@ async function loadSharedComponents() {
 
   try {
     if (headerPlaceholder) {
-      const headerResponse = await fetch("components/header.html");
+      const headerResponse = await fetch("components/header.html", { cache: "force-cache" });
+      if (!headerResponse.ok) throw new Error("Header component could not be loaded.");
       const headerHtml = await headerResponse.text();
       headerPlaceholder.innerHTML = headerHtml;
     }
 
     if (footerPlaceholder) {
-      const footerResponse = await fetch("components/footer.html");
+      const footerResponse = await fetch("components/footer.html", { cache: "force-cache" });
+      if (!footerResponse.ok) throw new Error("Footer component could not be loaded.");
       const footerHtml = await footerResponse.text();
       footerPlaceholder.innerHTML = footerHtml;
     }
@@ -94,6 +96,7 @@ function initMobileNav() {
     navToggle.classList.remove("active");
     document.body.classList.remove("nav-open");
     navToggle.setAttribute("aria-expanded", "false");
+    mobileNav.setAttribute("aria-hidden", "true");
   };
 
   navToggle.addEventListener("click", () => {
@@ -101,6 +104,7 @@ function initMobileNav() {
     navToggle.classList.toggle("active", isOpen);
     document.body.classList.toggle("nav-open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
+    mobileNav.setAttribute("aria-hidden", String(!isOpen));
   });
 
   const mobileLinks = mobileNav.querySelectorAll("a");
@@ -121,6 +125,13 @@ function initMobileNav() {
       closeMobileNav();
     }
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileNav.classList.contains("open")) {
+      closeMobileNav();
+      navToggle.focus();
+    }
+  });
 }
 
 /* =========================================
@@ -129,6 +140,11 @@ function initMobileNav() {
 function initRevealOnScroll() {
   const revealElements = document.querySelectorAll(".reveal");
   if (!revealElements.length) return;
+
+  if (prefersReducedMotion()) {
+    revealElements.forEach((element) => element.classList.add("active"));
+    return;
+  }
 
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -152,7 +168,7 @@ function initRevealOnScroll() {
 ========================================= */
 function initHeroSlider() {
   const slides = document.querySelectorAll(".hero-slider .slide");
-  if (!slides.length) return;
+  if (slides.length < 2 || prefersReducedMotion()) return;
 
   let currentSlide = 0;
 
@@ -169,6 +185,13 @@ function initHeroSlider() {
 function initCounters() {
   const counters = document.querySelectorAll(".counter");
   if (!counters.length) return;
+
+  if (prefersReducedMotion()) {
+    counters.forEach((counter) => {
+      counter.textContent = Number(counter.dataset.target) || 0;
+    });
+    return;
+  }
 
   const counterObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -208,17 +231,34 @@ function initFaqAccordion() {
   const faqItems = document.querySelectorAll(".faq-item");
   if (!faqItems.length) return;
 
-  faqItems.forEach((item) => {
+  faqItems.forEach((item, index) => {
     const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
     if (!button) return;
+
+    const answerId = answer?.id || `faq-answer-${index + 1}`;
+    if (answer) {
+      answer.id = answerId;
+      answer.setAttribute("role", "region");
+      answer.setAttribute("aria-labelledby", `faq-question-${index + 1}`);
+    }
+
+    button.id = `faq-question-${index + 1}`;
+    button.type = "button";
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", answerId);
 
     button.addEventListener("click", () => {
       const isActive = item.classList.contains("active");
 
-      faqItems.forEach((faq) => faq.classList.remove("active"));
+      faqItems.forEach((faq) => {
+        faq.classList.remove("active");
+        faq.querySelector(".faq-question")?.setAttribute("aria-expanded", "false");
+      });
 
       if (!isActive) {
         item.classList.add("active");
+        button.setAttribute("aria-expanded", "true");
       }
     });
   });
@@ -232,15 +272,33 @@ function initWhatsAppWidget() {
   const whatsappMenu = document.getElementById("whatsappMenu");
 
   if (!toggleButton || !whatsappMenu) return;
+  toggleButton.setAttribute("aria-expanded", "false");
+  toggleButton.setAttribute("aria-controls", "whatsappMenu");
+  whatsappMenu.setAttribute("aria-hidden", "true");
+
+  const closeMenu = () => {
+    whatsappMenu.classList.remove("open");
+    toggleButton.setAttribute("aria-expanded", "false");
+    whatsappMenu.setAttribute("aria-hidden", "true");
+  };
 
   toggleButton.addEventListener("click", (event) => {
     event.stopPropagation();
-    whatsappMenu.classList.toggle("open");
+    const isOpen = whatsappMenu.classList.toggle("open");
+    toggleButton.setAttribute("aria-expanded", String(isOpen));
+    whatsappMenu.setAttribute("aria-hidden", String(!isOpen));
   });
 
   document.addEventListener("click", (event) => {
     if (!whatsappMenu.contains(event.target) && event.target !== toggleButton) {
-      whatsappMenu.classList.remove("open");
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && whatsappMenu.classList.contains("open")) {
+      closeMenu();
+      toggleButton.focus();
     }
   });
 }
@@ -252,18 +310,21 @@ function initBackToTop() {
   const backToTopButton = document.getElementById("backToTop");
   if (!backToTopButton) return;
 
-  window.addEventListener("scroll", () => {
+  const toggleBackToTop = () => {
     if (window.scrollY > 300) {
       backToTopButton.classList.add("show");
     } else {
       backToTopButton.classList.remove("show");
     }
-  });
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
 
   backToTopButton.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
     });
   });
 }
@@ -310,6 +371,7 @@ function initContactFormValidation() {
 
     if (!isValid) {
       event.preventDefault();
+      form.querySelector("[aria-invalid='true']")?.focus();
     }
   });
 }
@@ -321,9 +383,11 @@ function showError(input, message) {
   const errorElement = formGroup.querySelector(".error-message");
   if (errorElement) {
     errorElement.textContent = message;
+    errorElement.setAttribute("role", "alert");
   }
 
   input.style.borderColor = "#e10600";
+  input.setAttribute("aria-invalid", "true");
 }
 
 function clearErrors(form) {
@@ -335,6 +399,7 @@ function clearErrors(form) {
   const fields = form.querySelectorAll("input, select, textarea");
   fields.forEach((field) => {
     field.style.borderColor = "";
+    field.removeAttribute("aria-invalid");
   });
 }
 
@@ -352,19 +417,28 @@ function initPortfolioFilter() {
   if (!filterButtons.length || !portfolioCards.length) return;
 
   filterButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+
     button.addEventListener("click", () => {
       const filter = button.dataset.filter;
 
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      filterButtons.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-pressed", "false");
+      });
+
       button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
 
       portfolioCards.forEach((card) => {
         const category = card.dataset.category;
 
         if (filter === "all" || category === filter) {
           card.style.display = "flex";
+          card.removeAttribute("aria-hidden");
         } else {
           card.style.display = "none";
+          card.setAttribute("aria-hidden", "true");
         }
       });
     });
@@ -379,4 +453,8 @@ function setCurrentYear() {
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
+}
+
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
