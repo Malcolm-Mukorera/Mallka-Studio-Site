@@ -63,8 +63,30 @@ async function loadSharedComponents() {
     setCurrentYear();
     setActiveNavLink();
     initMobileNav();
+    initHeaderScrollState();
   } catch (error) {
     console.error("Error loading shared components:", error);
+  }
+}
+
+/* =========================================
+   HEADER SCROLL STATE
+========================================= */
+function initHeaderScrollState() {
+  if (window.__malkaHeaderScrollBound) {
+    updateHeaderScrollState();
+    return;
+  }
+
+  window.__malkaHeaderScrollBound = true;
+  window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+  updateHeaderScrollState();
+}
+
+function updateHeaderScrollState() {
+  const header = document.getElementById("siteHeader");
+  if (header) {
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
   }
 }
 
@@ -78,6 +100,7 @@ function setActiveNavLink() {
   const navLinks = document.querySelectorAll(`[data-nav="${page}"]`);
   navLinks.forEach((link) => {
     link.classList.add("active");
+    link.setAttribute("aria-current", "page");
   });
 }
 
@@ -91,12 +114,15 @@ function initMobileNav() {
 
   if (!navToggle || !mobileNav) return;
 
-  const closeMobileNav = () => {
+  const focusableSelector = "a[href], button:not([disabled])";
+
+  const closeMobileNav = (restoreFocus = false) => {
     mobileNav.classList.remove("open");
     navToggle.classList.remove("active");
     document.body.classList.remove("nav-open");
     navToggle.setAttribute("aria-expanded", "false");
     mobileNav.setAttribute("aria-hidden", "true");
+    if (restoreFocus) navToggle.focus();
   };
 
   navToggle.addEventListener("click", () => {
@@ -105,6 +131,7 @@ function initMobileNav() {
     document.body.classList.toggle("nav-open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
     mobileNav.setAttribute("aria-hidden", String(!isOpen));
+    if (isOpen) navClose?.focus();
   });
 
   const mobileLinks = mobileNav.querySelectorAll("a");
@@ -128,8 +155,27 @@ function initMobileNav() {
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && mobileNav.classList.contains("open")) {
+      closeMobileNav(true);
+    }
+
+    if (event.key === "Tab" && mobileNav.classList.contains("open")) {
+      const focusable = [...mobileNav.querySelectorAll(focusableSelector)];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980 && mobileNav.classList.contains("open")) {
       closeMobileNav();
-      navToggle.focus();
     }
   });
 }
@@ -307,14 +353,30 @@ function initWhatsAppWidget() {
    BACK TO TOP
 ========================================= */
 function initBackToTop() {
-  const backToTopButton = document.getElementById("backToTop");
-  if (!backToTopButton) return;
+  let backToTopButton = document.getElementById("backToTop");
+  if (!backToTopButton) {
+    backToTopButton = document.createElement("button");
+    backToTopButton.id = "backToTop";
+    backToTopButton.className = "back-to-top";
+    backToTopButton.type = "button";
+    backToTopButton.setAttribute("aria-label", "Back to top");
+    backToTopButton.innerHTML = '<span aria-hidden="true">&uarr;</span>';
+    document.body.appendChild(backToTopButton);
+  }
+
+  backToTopButton.type = "button";
+  backToTopButton.setAttribute("aria-hidden", "true");
+  backToTopButton.tabIndex = -1;
 
   const toggleBackToTop = () => {
     if (window.scrollY > 300) {
       backToTopButton.classList.add("show");
+      backToTopButton.setAttribute("aria-hidden", "false");
+      backToTopButton.tabIndex = 0;
     } else {
       backToTopButton.classList.remove("show");
+      backToTopButton.setAttribute("aria-hidden", "true");
+      backToTopButton.tabIndex = -1;
     }
   };
 
@@ -336,12 +398,23 @@ function initContactFormValidation() {
   const form = document.getElementById("contactForm");
   if (!form) return;
 
+  const service = form.querySelector("#service");
+  const requestedService = new URLSearchParams(window.location.search).get("service");
+  if (service && [...service.options].some((option) => option.value === requestedService)) {
+    service.value = requestedService;
+  }
+
+  form.querySelectorAll("input, select, textarea").forEach((field) => {
+    field.addEventListener("input", () => clearFieldError(field));
+    field.addEventListener("change", () => clearFieldError(field));
+  });
+
   form.addEventListener("submit", (event) => {
+    event.preventDefault();
     let isValid = true;
 
     const name = form.querySelector("#name");
     const email = form.querySelector("#email");
-    const service = form.querySelector("#service");
     const message = form.querySelector("#message");
 
     clearErrors(form);
@@ -370,9 +443,26 @@ function initContactFormValidation() {
     }
 
     if (!isValid) {
-      event.preventDefault();
       form.querySelector("[aria-invalid='true']")?.focus();
+      return;
     }
+
+    const serviceLabel = service.options[service.selectedIndex].text;
+    const subject = `Project enquiry: ${serviceLabel}`;
+    const body = [
+      `Name: ${name.value.trim()}`,
+      `Email: ${email.value.trim()}`,
+      `Phone: ${form.querySelector("#phone").value.trim() || "Not provided"}`,
+      `Company: ${form.querySelector("#company").value.trim() || "Not provided"}`,
+      `Service: ${serviceLabel}`,
+      `Timeline: ${form.querySelector("#timeline").value}`,
+      `Budget: ${form.querySelector("#budget").value}`,
+      "",
+      "Project details:",
+      message.value.trim(),
+    ].join("\n");
+
+    window.location.href = `mailto:malkastudio.team@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
 
@@ -401,6 +491,19 @@ function clearErrors(form) {
     field.style.borderColor = "";
     field.removeAttribute("aria-invalid");
   });
+}
+
+function clearFieldError(field) {
+  const formGroup = field.closest(".form-group");
+  if (!formGroup || field.getAttribute("aria-invalid") !== "true") return;
+
+  field.removeAttribute("aria-invalid");
+  field.style.borderColor = "";
+  const errorElement = formGroup.querySelector(".error-message");
+  if (errorElement) {
+    errorElement.textContent = "";
+    errorElement.removeAttribute("role");
+  }
 }
 
 function isValidEmail(email) {
